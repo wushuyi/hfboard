@@ -1,0 +1,47 @@
+画板:
+	画板动作传输:
+	{
+		type: 'board',
+		data: {
+			
+		} //各种需要转发的数据
+	},
+	获取画板背景图:
+	{
+		type: 'getBoardBg'
+		data:{
+			index: '' 第几个画板背景
+		}
+	}
+		返回:
+	{
+		type: 'getBoardBg',
+		data: {
+			bgSrc: ''返回背景图url
+		}
+	}
+聊天:
+	{
+		type: 'task',
+		data: {} //各种需要转发的数据
+	}
+	
+	{
+		t:
+		d:{
+			code:{}
+			data:{}
+		}
+	}
+	
+	
+	{
+		type: 'doLogin',
+		data:{
+			username: 'wushuyi',
+			password: 'sdjflsdakj'
+		}
+	}
+	
+	
+	"{"username":"wushuyi","password":"sdjflsdakj"}"
