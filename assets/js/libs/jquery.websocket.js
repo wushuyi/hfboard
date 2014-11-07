@@ -29,7 +29,6 @@
 
             ws.setEvents = function(obj){
                 $.extend(settings.events, obj);
-                //console.log(settings);
             };
             ws.getEvents = function(){
                 return settings;

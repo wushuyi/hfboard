@@ -102,7 +102,9 @@
 			var pubEtc = self.pubEtc;
 			var taskView = '<p><span class="taskname">'+data.user+': </span><span class="tasktext">'+data.text+'</span></p>';
 			pubEtc.msgBox.append(taskView);
-		}
+			self.onMsgView();
+		},
+		onMsgView: function(){}
 	};
 	window.Task = task;
 })(window.jQuery);

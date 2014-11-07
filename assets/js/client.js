@@ -1,6 +1,8 @@
 (function($){
 	$(document).ready(function (){
-		var ws = $.websocket("ws://wushuyi.com:9001/socket");
+		var ws = $.websocket("ws://localhost:8080/html5/ws");
+
+
 
 		$('.boardCent').jScrollPane({
 			autoReinitialise: true
@@ -8,6 +10,7 @@
 		$('.taskCent').jScrollPane({
 			autoReinitialise: true
 		});
+		var taskJsp = $('.taskCent').data('jsp');
 
 		var um = UM.getEditor('myEditor');
 		var uName = window.prompt('欢迎,请输入一个屌炸天的昵称吧!', '我是逗比');
@@ -25,18 +28,27 @@
 				ws: ws
 			});
 
+			msn.onMsgView = function(){
+				setTimeout(function(){
+					taskJsp.scrollToBottom();
+				}, 300)
+			}
 		});
 
-		var myBoard = new Board($("#hfBoard"), {
+		var myBoard = $.hfboard($("#hfBoard"), {
 			type: "service",
 			userName: uName,
 			bgImg: './assets/images/width600.png',
 			ws: ws
 		});
-		myBoard.penInit();
-		myBoard.penEvent();
+		myBoard.pen();
+		setTimeout(function(){
+			myBoard.setStyle('lineCap', 'round');
+			myBoard.setStyle('strokeStyle', '#DD4814');
+		}, 100);
 
-		window.myBoard = myBoard;
-
+		$('.studyBoard').on('selectstart', function(e){
+			e.preventDefault()
+		})
 	});
 })(window.jQuery);
