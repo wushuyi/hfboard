@@ -6,59 +6,97 @@
 -->
 
 <!-- modernizr处理个版本IE -->
-<!--[if lt IE 7 ]> <html class="ie ie6 ie-lt10 ie-lt9 ie-lt8 ie-lt7 no-js" lang="en"> <![endif]-->
-<!--[if IE 7 ]>    <html class="ie ie7 ie-lt10 ie-lt9 ie-lt8 no-js" lang="en"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie ie8 ie-lt10 ie-lt9 no-js" lang="en"> <![endif]-->
-<!--[if IE 9 ]>    <html class="ie ie9 ie-lt10 no-js" lang="en"> <![endif]-->
-<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<!--[if lt IE 7 ]>
+<html class="ie ie6 ie-lt10 ie-lt9 ie-lt8 ie-lt7 no-js" lang="en"> <![endif]-->
+<!--[if IE 7 ]>
+<html class="ie ie7 ie-lt10 ie-lt9 ie-lt8 no-js" lang="en"> <![endif]-->
+<!--[if IE 8 ]>
+<html class="ie ie8 ie-lt10 ie-lt9 no-js" lang="en"> <![endif]-->
+<!--[if IE 9 ]>
+<html class="ie ie9 ie-lt10 no-js" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="en"><!--<![endif]-->
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>学习中心学生版</title>
-	<meta name="author" content="shuyi.wu" />
-	<meta name="description" content="" />
-	<meta name="Copyright" content="wushuyi" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" href="favicon.ico" />
-	<link rel="stylesheet" href="assets/css/reset.css" />
-	<link rel="stylesheet" href="assets/js/libs/jscrollpane-2.0.14/jquery.jscrollpane.min.css"/>
-	<link rel="stylesheet" href="assets/js/libs/umeditor-1.2.2/themes/default/css/umeditor.css">
-	<link rel="stylesheet" href="assets/css/client.css" />
-	<script src="assets/js/libs/modernizr-2.8.3.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>学习中心学生版</title>
+    <meta name="author" content="shuyi.wu"/>
+    <meta name="description" content=""/>
+    <meta name="Copyright" content="wushuyi"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <link rel="stylesheet" href="assets/css/reset.css"/>
+    <link rel="stylesheet" href="assets/js/libs/jscrollpane-2.0.14/jquery.jscrollpane.min.css"/>
+    <link rel="stylesheet" href="assets/js/libs/umeditor-1.2.2/themes/default/css/umeditor.css">
+    <link rel="stylesheet" href="assets/css/client.css"/>
+    <script src="assets/js/libs/modernizr-2.8.3.min.js"></script>
 </head>
 
 <body>
 <div class="wrapper">
-	<div id="hfStudyBox">
-		<div id="leftCent">
-			<div class="studyBoard">
-				<div class="boardCent">
-					<div class="scroll">
-						<h1 class="boardTitle">题目 <span>1</span></h1>
-						<div id="hfBoard"></div>
-					</div>
-				</div>
-				<div class="boardBar">
-					<div class="soundBtn"></div>
-					<div class="prev"> < </div>
-					<div class="num">1</div>
-					<div class="next"> > </div>
-				</div>
-			</div>
-		</div>
-		<div id="rightCent">
-			<div class="taskBox">
-				<h2 class="taskTitle">老师A</h2>
-				<div class="taskCent">
-					<div class="scroll">
-					</div>
-				</div>
-				<div class="taskBar">
-					<div id="myEditor" contenteditable="true"></div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div id="session1">
+        <div class="loginBox">
+            <h1>登录</h1>
+            <div class="user">
+                <span>用户名: </span>
+                <input type="text" name="user">
+            </div>
+            <div class="passwd">
+                <span>密码: </span>
+                <input type="password" name="passwd">
+            </div>
+            <div class="submit">
+                <button>确认</button>
+            </div>
+        </div>
+    </div>
+    <div id="session2">
+        <div class="roomCent">
+            <div class="toolBar">
+                <button class="createRoom">创建房间</button>
+            </div>
+            <div class="roomBox">
+                <div class="scroll">
+                    <ul class="roomList">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="session3">
+        <div id="hfStudyBox">
+            <div id="leftCent">
+                <div class="studyBoard">
+                    <div class="boardCent">
+                        <div class="scroll">
+                            <h1 class="boardTitle">题目 <span>1</span></h1>
+
+                            <div id="hfBoard"></div>
+                        </div>
+                    </div>
+                    <div class="boardBar">
+                        <div class="soundBtn"></div>
+                        <div class="prev"> <</div>
+                        <div class="num">1</div>
+                        <div class="next"> ></div>
+                    </div>
+                </div>
+            </div>
+            <div id="rightCent">
+                <div class="taskBox">
+                    <h2 class="taskTitle">老师A</h2>
+
+                    <div class="taskCent">
+                        <div class="scroll">
+                        </div>
+                    </div>
+                    <div class="taskBar">
+                        <div id="myEditor" contenteditable="true"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <script src='assets/js/libs/jquery-1.11.1.min.js'></script>
 <script src="assets/js/libs/jquery.websocket.js"></script>

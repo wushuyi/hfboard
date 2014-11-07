@@ -79,7 +79,6 @@
 			var drawData = {
 				type: 'pen',
 				event: null,
-				userName: setting.userName,
 				offsetX: null,
 				offsetY: null
 			};
@@ -116,7 +115,6 @@
 		function penDraw(drawData){
 			switch (drawData.event){
 				case "setStyle":
-
 					break;
 				case "down":
 					context.beginPath();
@@ -139,10 +137,7 @@
 		}
 
 		function receiveDrawData(drawData){
-			if(drawData.userName == setting.userName){
-				return false;
-			}
-			drawData.remote = true;
+			console.log(drawData);
 			switch (drawData.type){
 				case "pen":
 					penDraw(drawData);
