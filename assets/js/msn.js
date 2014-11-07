@@ -23,6 +23,9 @@
 			options.ws.setEvents({
 				task: function(e){
 					//console.log(e);
+					if(!e.data){
+						return false;
+					}
 					self.socket._receive(e.data);
 				}
 			});
@@ -34,7 +37,9 @@
 					options.ws.send('task', data);
 				},
 				receive: function(data){
-					console.log(data);
+					if(data.code){
+						return false;
+					}
 					self.receiveMsg(data);
 				}
 			};
@@ -94,7 +99,7 @@
 			//console.log('run');
 			if(data.user != options.userName){
 				self.msgView(data);
-				self.onreceive(data);
+				//self.onreceive(data);
 			}
 		},
 		msgView: function(data){
@@ -102,7 +107,7 @@
 			var pubEtc = self.pubEtc;
 			var taskView = '<p><span class="taskname">'+data.user+': </span><span class="tasktext">'+data.text+'</span></p>';
 			pubEtc.msgBox.append(taskView);
-			self.onMsgView();
+			//self.onMsgView();
 		},
 		onMsgView: function(){}
 	};

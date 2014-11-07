@@ -36,6 +36,7 @@
 				ws.send('board', data);
 			},
 			receive: function(data){
+
 				receiveDrawData(data);
 			}
 		};
@@ -45,6 +46,9 @@
 			context = canvas.getContext("2d");
 			ws.setEvents({
 				board : function(e){
+					if(!e.data){
+						return false;
+					}
 					socket._receive(e.data);
 				}
 			});
@@ -137,7 +141,8 @@
 		}
 
 		function receiveDrawData(drawData){
-			console.log(drawData);
+			//console.log(drawData);
+			drawData.remote = true;
 			switch (drawData.type){
 				case "pen":
 					penDraw(drawData);
