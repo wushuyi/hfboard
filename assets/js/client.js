@@ -1,7 +1,10 @@
 (function($){
 	$(document).ready(function (){
-		var ws = $.websocket("ws://192.168.4.102:8080/html5/ws");
-		//var ws = $.websocket("ws://localhost:8080/html5/ws");
+		//var ws = $.websocket("ws://192.168.4.101:8080/html5/ws");
+		//var wsUrl = "ws://" + location.host + "/html5/ws";
+		//var ws = $.websocket(wsUrl);
+
+		var ws = $.websocket("ws://localhost:8080/html5/ws");
 
 		function initSession1(){
 			var $sessionBox1 = $("#session1");
@@ -76,7 +79,11 @@
 				switch (data.code){
 					case 1:
 						var data = data.data;
-						var roomInfo = '<li class="room" data-roomid="'+ data.roomId +'"><span>房间名称: '+ data.roomName +'</span> <span>创建时间: '+ data.createDate +'</span> <span>房间ID: '+ data.roomId +'</span></li>';
+						var roomInfo = "";
+						for(var key in data){
+							var row = data[key];
+							roomInfo+= '<li class="room" data-roomid="'+ row.roomId +'"><span>房间名称: '+ row.roomName +'</span> <span>创建时间: '+ row.createDate +'</span> <span>房间ID: '+ row.roomId +'</span></li>';
+						}
 						$roomList.append(roomInfo);
 						if(myCreate){
 							$sessionBox2.hide();
@@ -108,7 +115,7 @@
 			});
 
 			$createRoom.on('click', function(e){
-				var roomName = window.prompt('欢迎,请输入一个屌炸天的房间名称吧!', '我是逗比');
+				window.roomName = window.prompt('欢迎,请输入一个屌炸天的房间名称吧!', '我是逗比');
 				if(roomName){
 					ws.send('createRoom', {roomName: roomName});
 					myCreate = true;
@@ -136,7 +143,7 @@
 			var taskJsp = $('.taskCent').data('jsp');
 
 			var um = UM.getEditor('myEditor');
-			var uName = window.prompt('欢迎,请输入一个屌炸天的昵称吧!', '我是逗比');
+			var uName = window.roomName || window.prompt('欢迎,请输入一个屌炸天的昵称吧!', '我是逗比');
 			if(!uName){
 				uName = 'anonymous';
 			}
@@ -146,16 +153,22 @@
 				$toolbar.append('<div class="sumBtn">发送</div>');
 				$toolbar.append('<div class="webcam"></div>');
 
-				var msn = new Task($('#rightCent'), {
+				var $hftaskEL = $('#rightCent');
+				var hftask = $.hftask($hftaskEL, {
 					userName: uName,
-					ws: ws
+					ws: ws,
+					el: {
+						msgBox: $('.taskCent .scroll', $hftaskEL),
+						userName: $('.taskTitle', $hftaskEL),
+						sendBox: $('#myEditor' , $hftaskEL),
+						sendBtn: $('.taskBar .sumBtn', $hftaskEL)
+					}
+				});
+				hftask.setOnView(function(){
+					taskJsp.scrollToBottom();
 				});
 
-				msn.onMsgView = function(){
-					setTimeout(function(){
-						taskJsp.scrollToBottom();
-					}, 300)
-				}
+				window.hftask = hftask;
 			});
 
 			var myBoard = $.hfboard($("#hfBoard"), {
@@ -176,5 +189,14 @@
 		}
 
 		initSession1();
+		var $webcamCent = $('#webcamCent');
+		$('.pzBtn',$webcamCent).on('click', function(){
+			$('.cpBtn, .scBtn', $webcamCent).show();
+			$(this).hide();
+		});
+		$('.cpBtn',$webcamCent).on('click', function(){
+			$('.cpBtn, .scBtn', $webcamCent).hide();
+			$('.pzBtn', $webcamCent).show();
+		});
 	});
 })(window.jQuery);
