@@ -367,10 +367,14 @@ textarea:-moz-placeholder {
   height: 30px;
   cursor: pointer;
   border: 1px solid #000000;
+  background: red;
 }
 #webcamCent .cpBtn,
 #webcamCent .scBtn {
   display: none;
+}
+#webcamCent .pzBtn {
+  background: red;
 }
 /* Media queries
 -------------------------------------------------------------------------------*/

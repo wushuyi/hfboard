@@ -5,6 +5,7 @@
 		//var ws = $.websocket(wsUrl);
 
 		var ws = $.websocket("ws://localhost:8080/html5/ws");
+		window.ws = ws;
 
 		function initSession1(){
 			var $sessionBox1 = $("#session1");
@@ -190,13 +191,19 @@
 
 		initSession1();
 		var $webcamCent = $('#webcamCent');
+		var webcam = $.hfwebcam();
 		$('.pzBtn',$webcamCent).on('click', function(){
 			$('.cpBtn, .scBtn', $webcamCent).show();
 			$(this).hide();
+			webcam.pause();
 		});
 		$('.cpBtn',$webcamCent).on('click', function(){
 			$('.cpBtn, .scBtn', $webcamCent).hide();
 			$('.pzBtn', $webcamCent).show();
+			webcam.play();
+		});
+		$('.scBtn', $webcamCent).on('click', function(){
+			webcam.getPhoto();
 		});
 	});
 })(window.jQuery);

@@ -13,14 +13,40 @@
         factory(jQuery);
     }
 }(function($,window,undefined){
+    // 工具集合
     var util = {
+        // 将 blob 生成 url 链接
         stream2Url: function(stream){
             var objectUrl =  window.URL ? window.URL.createObjectURL(stream) : stream;
             return objectUrl;
         }
     };
 
+    (function() {
+        var lastTime = 0;
+        var vendors = ['ms', 'moz', 'webkit', 'o'];
+        for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+            window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
+            window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'CancelRequestAnimationFrame'];
+        }
+        if (!window.requestAnimationFrame) window.requestAnimationFrame = function(callback, element) {
+            var currTime = new Date().getTime();
+            var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+            var id = window.setTimeout(function() {
+                callback(currTime + timeToCall);
+            }, timeToCall);
+            lastTime = currTime + timeToCall;
+            return id;
+        };
+        if (!window.cancelAnimationFrame) window.cancelAnimationFrame = function(id) {
+            clearTimeout(id);
+        };
+    }());
+
+
+
     function WebCam(){
+        var self = this;
         (function(navigator){
             navigator.getUserMedia || (navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
             if(!navigator.getUserMedia){
@@ -35,6 +61,8 @@
             ctlBtn: document.createElement('button')
 
         };
+
+        var canvasloop;
         el.context = el.canvas.getContext('2d');
 
         navigator.getUserMedia({
@@ -54,18 +82,47 @@
             console.log(stream);
             el.video.width = el.canvas.width = 500;
             el.video.height = el.canvas.height = 400;
-            el.video.autoplay = true;
             el.video.src= util.stream2Url(stream);
-            setInterval(function(){
-                el.context.drawImage(el.video, 0, 0, el.video.width, el.video.height);
-            }, 1000/60);
             $('#webcamCent .webcamBox').append(el.canvas);
+            play();
         }
+
+        function play(){
+            function renderLoop() {
+                el.context.drawImage(el.video, 0, 0, el.video.width, el.video.height);
+                el.video.play();
+                canvasloop = window.requestAnimationFrame(renderLoop);
+            }
+            renderLoop();
+        }
+
+        function pause(){
+            el.video.pause();
+            window.cancelAnimationFrame(canvasloop);
+        }
+
+        function getPhoto(){
+            var base64Img = el.canvas.toDataURL("image/png");
+            var originalLen = base64Img.length;
+            base64Img = base64Img.split(';base64,')[1];
+            var blob = window.base64ToBlob(base64Img, 'image/png');
+            var generatedFile = new File([blob], "test.png", {type: "image/png", lastModified: new Date()});
+
+            var newLen = blob.size;
+            var blobUrl = util.stream2Url(generatedFile);
+            console.log(blobUrl);
+            console.log("原来大小: "+ originalLen +"; 新大小: " + newLen + "; 压缩率: " + newLen/originalLen + ";");
+        }
+
+
 
         function mediaError(err){
             console.log(err);
         }
 
+        self.play = play;
+        self.pause = pause;
+        self.getPhoto = getPhoto;
     }
 
     function webcam($el, options){
@@ -75,5 +132,5 @@
     $.extend({
         hfwebcam: webcam
     });
-    $.hfwebcam();
+
 },this));
