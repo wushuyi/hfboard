@@ -157,16 +157,17 @@
 			penInit();
 			penEvent();
 		};
+
 		self.setStyle = setStyle;
 
 		self.init();
 	}
 
-	function hfboard($el, options){
+	function board($el, options){
 		return new Board($el, options);
 	}
 
 	$.extend({
-		hfboard: hfboard
+		hfboard: board
 	});
 },this));

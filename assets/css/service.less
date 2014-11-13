@@ -1,371 +1,469 @@
 /* A Linux- and Windows-friendly sans-serif font stack: http://prospects.mhurrell.co.uk/post/updating-the-helvetica-font-stack */
-body {font: 13px Microsoft YaHei, Helmet, Freesans, sans-serif;}
+body {
+  font: 13px Microsoft YaHei, Helmet, Freesans, sans-serif;
+}
 
 /* Using local fonts? Check out Font Squirrel's webfont generator: http://www.fontsquirrel.com/tools/webfont-generator */
 
 /* We like off-black for text. */
-body, select, input, textarea {color: #333;}
+body, select, input, textarea {
+  color: #333;
+}
 
-a {color: #03f;}
-a:hover {color: #69f;}
+a {
+  color: #03f;
+}
+
+a:hover {
+  color: #69f;
+}
 
 /* Custom text-selection colors (remove any text shadows: http://twitter.com/miketaylr/status/12228805301) */
-::-moz-selection{background: #328EFE; color: #fff; text-shadow: none;}
-::selection {background: #328EFE; color: #fff; text-shadow: none;}
+::-moz-selection {
+  background: #328EFE;
+  color: #fff;
+  text-shadow: none;
+}
+
+::selection {
+  background: #328EFE;
+  color: #fff;
+  text-shadow: none;
+}
 
 /*	j.mp/webkit-tap-highlight-color */
-a:link {-webkit-tap-highlight-color: #fcd700;} 
+a:link {
+  -webkit-tap-highlight-color: #fcd700;
+}
 
-ins {background-color: #fcd700; color: #000; text-decoration: none;}
-mark {background-color: #fcd700; color: #000; font-style: italic; font-weight: bold;}
+ins {
+  background-color: #fcd700;
+  color: #000;
+  text-decoration: none;
+}
+
+mark {
+  background-color: #fcd700;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
 
 /* Mozilla dosen't style place holders by default */
-input:-moz-placeholder { color:#a9a9a9; }
-textarea:-moz-placeholder { color:#a9a9a9; }
-
-
-.jspScrollable, .jspContainer, .jspPane, .scroll{
-    outline: none;
+input:-moz-placeholder {
+  color: #a9a9a9;
 }
 
-.wrapper{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100%;
+textarea:-moz-placeholder {
+  color: #a9a9a9;
 }
-#hfStudyBox{
-    max-width: 1366px;
-    min-width: 1000px;
-    height: 100%;
-    margin: 0 auto;
-    position: relative;
+
+.jspScrollable, .jspContainer, .jspPane, .scroll {
+  outline: none;
 }
-#rightCent{
+
+.wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+#hfStudyBox {
+  max-width: 1366px;
+  min-width: 1000px;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+#rightCent {
+  width: 602px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #F2F2F2;
+  .studyBoard {
     width: 602px;
     height: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: #F2F2F2;
-    .studyBoard{
-        width: 602px;
-        height: 100%;
-        border: 1px solid #D9D9D9;
-        background: #FFFFFF;
-        position: relative;
-        .boardCent{
-            position: absolute;
-            width: 100%;
-            top: 0;
-            left: 0;
-            bottom: 50px;
-            .scroll{
-                width: 600px;
-            }
-            .jspVerticalBar{
-                width: 8px;
-                background: transparent;
-                margin-right: 4px;
-            }
-            .jspTrack{
-                background: transparent;
-            }
-            .jspDrag{
-                background: #E6E6E6;
-            }
-            .jspCap{
-                height: 10px;
-                display: block;
-            }
-            .boardTitle{
-                display: inline-block;
-                padding: 26px 0px 14px 0px;
-                margin:  0px 20px 30px 44px;
-                font-size: 18px;
-                color: #999999;
-                border-bottom: 1px solid #D9D9D9;
-            }
-        }
-        .boardBar{
-            position: absolute;
-            width: 100%;
-            height: 50px;
-            bottom: 0;
-            border-top: 1px solid #D9D9D9;
-            .soundBtn{
-                position: absolute;
-                left: 38px;
-                top: 12px;
-                width: 20px;
-                height: 24px;
-                cursor: pointer;
-                background: url('../images/icons.png') no-repeat -114px -2px;
-            }
-            .prev{
-                position: absolute;
-                top: 16px;
-                right: 100px;
-                width: 18px;
-                height: 24px;
-                line-height: 9999px;
-                overflow: hidden;
-                cursor: pointer;
-                background: url('../images/prev.png') no-repeat 4px 2px;
-            }
-            .next{
-                position: absolute;
-                top: 16px;
-                right: 28px;
-                width: 18px;
-                height: 24px;
-                line-height: 9999px;
-                overflow: hidden;
-                cursor: pointer;
-                background: url('../images/next.png') no-repeat 4px 2px;
-            }
-            .num{
-                position: absolute;
-                top: 14px;
-                right: 66px;
-                font-size: 20px;
-                color: #747474;
-            }
-        }
+    border: 1px solid #D9D9D9;
+    background: #FFFFFF;
+    position: relative;
+    .boardCent {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      bottom: 50px;
+      .scroll {
+        width: 600px;
+      }
+      .jspVerticalBar {
+        width: 8px;
+        background: transparent;
+        margin-right: 4px;
+      }
+      .jspTrack {
+        background: transparent;
+      }
+      .jspDrag {
+        background: #E6E6E6;
+      }
+      .jspCap {
+        height: 10px;
+        display: block;
+      }
+      .boardTitle {
+        display: inline-block;
+        padding: 26px 0px 14px 0px;
+        margin: 0px 20px 30px 44px;
+        font-size: 18px;
+        color: #999999;
+        border-bottom: 1px solid #D9D9D9;
+      }
     }
+    .boardBar {
+      position: absolute;
+      width: 100%;
+      height: 50px;
+      bottom: 0;
+      border-top: 1px solid #D9D9D9;
+      .soundBtn {
+        position: absolute;
+        left: 38px;
+        top: 12px;
+        width: 20px;
+        height: 24px;
+        cursor: pointer;
+        background: url('../images/icons.png') no-repeat -114px -2px;
+      }
+      .prev {
+        position: absolute;
+        top: 16px;
+        right: 100px;
+        width: 18px;
+        height: 24px;
+        line-height: 9999px;
+        overflow: hidden;
+        cursor: pointer;
+        background: url('../images/prev.png') no-repeat 4px 2px;
+      }
+      .next {
+        position: absolute;
+        top: 16px;
+        right: 28px;
+        width: 18px;
+        height: 24px;
+        line-height: 9999px;
+        overflow: hidden;
+        cursor: pointer;
+        background: url('../images/next.png') no-repeat 4px 2px;
+      }
+      .num {
+        position: absolute;
+        top: 14px;
+        right: 66px;
+        font-size: 20px;
+        color: #747474;
+      }
+      .swColor{
+        position: absolute;
+        top: 14px;
+        left: 270px;
+        li{
+          float: left;
+          width: 22px;
+          height: 22px;
+          margin-left: 20px;
+          cursor: pointer;
+        }
+        .penRed{
+          background: red;
+        }
+        .penBlack{
+          background: #000000;
+        }
+      }
+    }
+  }
 }
-#hfBoard{
-    width: 100%;
-    border-top: 1px dashed #E6E6E6;
-    border-bottom: 1px dashed #E6E6E6;
+
+#hfBoard {
+  width: 100%;
+  border-top: 1px dashed #E6E6E6;
+  border-bottom: 1px dashed #E6E6E6;
 }
-#leftCent{
+
+#leftCent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 764px;
+  height: 100%;
+  background: #F2F2F2;
+  .planBox {
     position: absolute;
     top: 0;
     left: 0;
-    width: 764px;
+    width: 746px;
     height: 100%;
-    background: #F2F2F2;
-    .planBox{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 746px;
-        height: 100%;
-        background: #FFFFFF;
-        border: 1px solid #D9D9D9;
-    }
-    .panCent{
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 50px;
-        width: 100%;
-        .panTitle{
-            display: inline-block;
-            padding: 26px 0px 14px 0px;
-            margin: 0px 20px 30px 44px;
-            font-size: 18px;
-            color: #999999;
-            border-bottom: 1px solid #D9D9D9;
-        }
-        .test{
-            width: 100%;
-            height: 1000px;
-            border-top: 1px dashed #E6E6E6;
-            border-bottom: 1px dashed #E6E6E6;
-        }
-        .jspVerticalBar{
-            width: 8px;
-            background: transparent;
-            margin-right: 4px;
-        }
-        .jspTrack{
-            background: transparent;
-        }
-        .jspDrag{
-            background: #E6E6E6;
-        }
-        .jspCap{
-            height: 10px;
-            display: block;
-        }
-    }
-    .planBar{
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 50px;
-        border-top: 1px solid #D9D9D9;
-        font-size: 16px;
-        color: #999999;
-        .showTaskBtn{
-            width: 100px;
-            height: 26px;
-            position: absolute;
-            top: 14px;
-            left: 24px;
-            padding-left: 36px;
-            cursor: pointer;
-            &:before{
-                content: "";
-                display: block;
-                background: url("../images/icon2.png") no-repeat 0px 0px;
-                width: 30px;
-                height: 30px;
-                position: absolute;
-                top: 0px;
-                left: 0px;
-            }
-        }
-        .playVideoBtn{
-            width: 56px;
-            height: 26px;
-            position: absolute;
-            padding-left: 20px;
-            top: 14px;
-            left: 280px;
-            cursor: pointer;
-            &:before{
-                content: "";
-                display: block;
-                background: url("../images/icon2.png") no-repeat -94px 0px;
-                width: 16px;
-                height: 26px;
-                position: absolute;
-                top: 0px;
-                left: 0px;
-            }
-        }
-        .playSoundBtn{
-            width: 56px;
-            height: 26px;
-            position: absolute;
-            padding-left: 20px;
-            top: 14px;
-            left:374px;
-            cursor: pointer;
-            &:before{
-                content: "";
-                display: block;
-                background: url("../images/icon2.png") no-repeat -68px 0px;
-                width: 16px;
-                height: 26px;
-                position: absolute;
-                top: 0px;
-                left: 0px;
-            }
-        }
-        .morePlen{
-            width: 96px;
-            height: 26px;
-            position: absolute;
-            padding-left: 28px;
-            top: 14px;
-            left:474px;
-            cursor: pointer;
-            &:before{
-                content: "";
-                display: block;
-                background: url("../images/icon2.png") no-repeat -34px 0px;
-                width: 20px;
-                height: 26px;
-                position: absolute;
-                top: 0px;
-                left: 0px;
-            }
-        }
-        .prev{
-            position: absolute;
-            top: 16px;
-            right: 100px;
-            width: 18px;
-            height: 24px;
-            line-height: 9999px;
-            overflow: hidden;
-            cursor: pointer;
-            background: url('../images/prev.png') no-repeat 4px 2px;
-        }
-        .next{
-            position: absolute;
-            top: 16px;
-            right: 28px;
-            width: 18px;
-            height: 24px;
-            line-height: 9999px;
-            overflow: hidden;
-            cursor: pointer;
-            background: url('../images/next.png') no-repeat 4px 2px;
-        }
-        .num{
-            position: absolute;
-            top: 14px;
-            right: 66px;
-            font-size: 20px;
-            color: #747474;
-        }
-    }
-}
-#taskCent{
-    position: absolute;
-    top: 128px;
-    bottom: 70px;
-    left: 44px;
-    width: 656px;
+    background: #FFFFFF;
     border: 1px solid #D9D9D9;
-    box-shadow: #D9D9D9 0px 0px 6px;
-    .taskBox{
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        &:before{
-            content: "";
-            display: block;
-            background: red;
-            width: 0;
-            height: 0;
-            border-bottom: 20px solid red;
-            border-right: 10px solid transparent;
-            border-left: 10px solid transparent;
-        }
-        .taskTitle{
-            position: relative;
-            height: 28px;
-            font-size: 18px;
-            line-height: 28px;
-            background: #F7F7F7;
-            color: #9E9E9E;
-            text-align: center;
-            border-bottom: 1px solid #DCDCDC;
-        }
-        .close{
-            position: absolute;
-            padding-top: 2px;
-            padding-right: 2px;
-            cursor: pointer;
-            top: 0;
-            right: 0;
-            width: 26px;
-            height: 26px;
-            background: url('../images/icons3.png') no-repeat -62px 8px;
-        }
+  }
+  .panCent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 50px;
+    width: 100%;
+    .panTitle {
+      display: inline-block;
+      padding: 26px 0px 14px 0px;
+      margin: 0px 20px 30px 44px;
+      font-size: 18px;
+      color: #999999;
+      border-bottom: 1px solid #D9D9D9;
     }
+    .test {
+      width: 100%;
+      height: 1000px;
+      border-top: 1px dashed #E6E6E6;
+      border-bottom: 1px dashed #E6E6E6;
+    }
+    .jspVerticalBar {
+      width: 8px;
+      background: transparent;
+      margin-right: 4px;
+    }
+    .jspTrack {
+      background: transparent;
+    }
+    .jspDrag {
+      background: #E6E6E6;
+    }
+    .jspCap {
+      height: 10px;
+      display: block;
+    }
+  }
+  .planBar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    border-top: 1px solid #D9D9D9;
+    font-size: 16px;
+    color: #999999;
+    .showTaskBtn {
+      width: 100px;
+      height: 26px;
+      position: absolute;
+      top: 14px;
+      left: 24px;
+      padding-left: 36px;
+      cursor: pointer;
+      &:before {
+        content: "";
+        display: block;
+        background: url("../images/icon2.png") no-repeat 0px 0px;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+      }
+    }
+    .playVideoBtn {
+      width: 56px;
+      height: 26px;
+      position: absolute;
+      padding-left: 20px;
+      top: 14px;
+      left: 280px;
+      cursor: pointer;
+      &:before {
+        content: "";
+        display: block;
+        background: url("../images/icon2.png") no-repeat -94px 0px;
+        width: 16px;
+        height: 26px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+      }
+    }
+    .playSoundBtn {
+      width: 56px;
+      height: 26px;
+      position: absolute;
+      padding-left: 20px;
+      top: 14px;
+      left: 374px;
+      cursor: pointer;
+      &:before {
+        content: "";
+        display: block;
+        background: url("../images/icon2.png") no-repeat -68px 0px;
+        width: 16px;
+        height: 26px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+      }
+    }
+    .morePlen {
+      width: 96px;
+      height: 26px;
+      position: absolute;
+      padding-left: 28px;
+      top: 14px;
+      left: 474px;
+      cursor: pointer;
+      &:before {
+        content: "";
+        display: block;
+        background: url("../images/icon2.png") no-repeat -34px 0px;
+        width: 20px;
+        height: 26px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+      }
+    }
+    .prev {
+      position: absolute;
+      top: 16px;
+      right: 100px;
+      width: 18px;
+      height: 24px;
+      line-height: 9999px;
+      overflow: hidden;
+      cursor: pointer;
+      background: url('../images/prev.png') no-repeat 4px 2px;
+    }
+    .next {
+      position: absolute;
+      top: 16px;
+      right: 28px;
+      width: 18px;
+      height: 24px;
+      line-height: 9999px;
+      overflow: hidden;
+      cursor: pointer;
+      background: url('../images/next.png') no-repeat 4px 2px;
+    }
+    .num {
+      position: absolute;
+      top: 14px;
+      right: 66px;
+      font-size: 20px;
+      color: #747474;
+    }
+  }
+}
+
+#taskCent {
+  position: absolute;
+  top: 128px;
+  bottom: 70px;
+  left: 44px;
+  width: 656px;
+  border: 1px solid #D9D9D9;
+  box-shadow: #D9D9D9 0px 0px 6px;
+  .taskBox {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    &:before {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      position: absolute;
+      bottom: -10px;
+      left: 20px;
+      border-top: 10px solid #D9D9D9;
+      border-right: 16px solid transparent;
+      border-left: 16px solid transparent;
+      z-index: 9999;
+    }
+    &:after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      position: absolute;
+      bottom: -8px;
+      left: 20px;
+      border-top: 10px solid #FFFFFF;
+      border-right: 16px solid transparent;
+      border-left: 16px solid transparent;
+      z-index: 9999;
+    }
+    .taskTitle {
+      position: relative;
+      height: 28px;
+      font-size: 18px;
+      line-height: 28px;
+      background: #F7F7F7;
+      color: #9E9E9E;
+      text-align: center;
+      border-bottom: 1px solid #DCDCDC;
+    }
+    .close {
+      position: absolute;
+      padding-top: 2px;
+      padding-right: 2px;
+      cursor: pointer;
+      top: 0;
+      right: 0;
+      width: 26px;
+      height: 26px;
+      background: url('../images/icons3.png') no-repeat -62px 8px;
+    }
+    .taskCent{
+      position: absolute;
+      width: 100%;
+      top: 28px;
+      bottom: 135px;
+      overflow: hidden;
+      .scroll{
+        width: 654px;
+      }
+      .jspVerticalBar {
+        width: 8px;
+        background: transparent;
+        margin-right: 4px;
+      }
+      .jspTrack {
+        background: transparent;
+      }
+      .jspDrag {
+        background: #E6E6E6;
+      }
+      .jspCap {
+        height: 10px;
+        display: block;
+      }
+    }
+    .taskBar {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+    }
+  }
 }
 
 /* Media queries
 -------------------------------------------------------------------------------*/
 
 @media screen and (max-width: 480px) {
-	
-		
+
 }
-
-
 
 /* Print styles
 -------------------------------------------------------------------------------*/
 @media print {
-
-
 
 }

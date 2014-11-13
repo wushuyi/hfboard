@@ -344,6 +344,34 @@ textarea:-moz-placeholder {
   top: 4px;
   background: url('../images/icons.png') no-repeat 0px -2px;
 }
+#webcamCent {
+  position: fixed;
+  width: 502px;
+  height: 452px;
+  top: 50%;
+  left: 50%;
+  margin-left: -250px;
+  margin-top: -225px;
+  display: block;
+  border: 1px solid #000000;
+  background: #FFFFFF;
+  box-shadow: #666 0px 0px 10px;
+}
+#webcamCent .webcamBox video,
+#webcamCent .webcamBox canvas {
+  width: 500px;
+  height: 400px;
+}
+#webcamCent .btn {
+  width: 60px;
+  height: 30px;
+  cursor: pointer;
+  border: 1px solid #000000;
+}
+#webcamCent .cpBtn,
+#webcamCent .scBtn {
+  display: none;
+}
 /* Media queries
 -------------------------------------------------------------------------------*/
 /* Print styles

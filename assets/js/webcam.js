@@ -26,7 +26,7 @@
             navigator.getUserMedia || (navigator.getUserMedia = navigator.mozGetUserMedia || navigator.webkitGetUserMedia || navigator.msGetUserMedia);
 
             if (!navigator.getUserMedia) {
-                console.log('您的浏览器不支持 调用摄像头!')
+                console.log('您的浏览器不支持 调用摄像头!');
                 return;
             }
 
@@ -47,7 +47,7 @@
                 var video = document.createElement('video');
                 var canvas = document.createElement('canvas');
                 var image = document.createElement('img');
-                var ctlBtn = $('<button>拍照</button>')
+                var ctlBtn = $('<button>拍照</button>');
 
                 video.width = canvas.width = options.width;
                 video.height = canvas.height = options.height;

@@ -313,6 +313,34 @@ textarea:-moz-placeholder { color:#a9a9a9; }
         }
     }
 }
+#webcamCent{
+    position: fixed;
+    width: 502px;
+    height: 452px;
+    top: 50%;
+    left: 50%;
+    margin-left: -250px;
+    margin-top: -225px;
+    display: block;
+    border: 1px solid #000000;
+    background: #FFFFFF;
+    box-shadow: #666 0px 0px 10px;
+    .webcamBox{
+        video, canvas{
+            width: 500px;
+            height: 400px;
+        }
+    }
+    .btn{
+        width: 60px;
+        height: 30px;
+        cursor: pointer;
+        border: 1px solid #000000;
+    }
+    .cpBtn, .scBtn  {
+        display: none;
+    }
+}
 
 /* Media queries
 -------------------------------------------------------------------------------*/

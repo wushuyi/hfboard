@@ -161,6 +161,24 @@ textarea:-moz-placeholder {
   font-size: 20px;
   color: #747474;
 }
+#rightCent .studyBoard .boardBar .swColor {
+  position: absolute;
+  top: 14px;
+  left: 270px;
+}
+#rightCent .studyBoard .boardBar .swColor li {
+  float: left;
+  width: 22px;
+  height: 22px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+#rightCent .studyBoard .boardBar .swColor .penRed {
+  background: red;
+}
+#rightCent .studyBoard .boardBar .swColor .penBlack {
+  background: #000000;
+}
 #hfBoard {
   width: 100%;
   border-top: 1px dashed #E6E6E6;
@@ -350,12 +368,28 @@ textarea:-moz-placeholder {
 #taskCent .taskBox:before {
   content: "";
   display: block;
-  background: red;
   width: 0;
   height: 0;
-  border-bottom: 20px solid red;
-  border-right: 10px solid transparent;
-  border-left: 10px solid transparent;
+  position: absolute;
+  bottom: -10px;
+  left: 20px;
+  border-top: 10px solid #D9D9D9;
+  border-right: 16px solid transparent;
+  border-left: 16px solid transparent;
+  z-index: 9999;
+}
+#taskCent .taskBox:after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  bottom: -8px;
+  left: 20px;
+  border-top: 10px solid #FFFFFF;
+  border-right: 16px solid transparent;
+  border-left: 16px solid transparent;
+  z-index: 9999;
 }
 #taskCent .taskBox .taskTitle {
   position: relative;
@@ -377,6 +411,36 @@ textarea:-moz-placeholder {
   width: 26px;
   height: 26px;
   background: url('../images/icons3.png') no-repeat -62px 8px;
+}
+#taskCent .taskBox .taskCent {
+  position: absolute;
+  width: 100%;
+  top: 28px;
+  bottom: 135px;
+  overflow: hidden;
+}
+#taskCent .taskBox .taskCent .scroll {
+  width: 654px;
+}
+#taskCent .taskBox .taskCent .jspVerticalBar {
+  width: 8px;
+  background: transparent;
+  margin-right: 4px;
+}
+#taskCent .taskBox .taskCent .jspTrack {
+  background: transparent;
+}
+#taskCent .taskBox .taskCent .jspDrag {
+  background: #E6E6E6;
+}
+#taskCent .taskBox .taskCent .jspCap {
+  height: 10px;
+  display: block;
+}
+#taskCent .taskBox .taskBar {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 }
 /* Media queries
 -------------------------------------------------------------------------------*/
