@@ -103,6 +103,7 @@
 
         function getPhoto(){
             var base64Img = el.canvas.toDataURL("image/png");
+            localStorage.img = base64Img;
             var originalLen = base64Img.length;
             base64Img = base64Img.split(';base64,')[1];
             var blob = window.base64ToBlob(base64Img, 'image/png');

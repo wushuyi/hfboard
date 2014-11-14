@@ -205,5 +205,14 @@
 		$('.scBtn', $webcamCent).on('click', function(){
 			webcam.getPhoto();
 		});
+
+		var base64Img = localStorage.img;
+		var originalLen = base64Img.length;
+		base64Img = base64Img.split(';base64,')[1];
+		var blob = window.base64ToBlob(base64Img, 'image/png');
+		var generatedFile = new File([blob], "test.png", {type: "image/png", lastModified: new Date()});
+		localforage.setItem('test', blob, function(){
+			console.log('ok');
+		});
 	});
 })(window.jQuery);
