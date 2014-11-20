@@ -313,18 +313,37 @@ textarea:-moz-placeholder { color:#a9a9a9; }
         }
     }
 }
+#popBox{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+    display: none;
+    .bg{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #000000;
+        opacity: 0.8;
+    }
+}
+
 #webcamCent{
-    position: fixed;
+    position: absolute;
     width: 502px;
     height: 452px;
     top: 50%;
     left: 50%;
     margin-left: -250px;
     margin-top: -225px;
-    display: block;
     border: 1px solid #000000;
     background: #FFFFFF;
     box-shadow: #666 0px 0px 10px;
+    display: none;
     .webcamBox{
         video, canvas{
             width: 500px;

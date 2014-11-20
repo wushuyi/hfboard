@@ -27,10 +27,10 @@
                 }
             },
             el: {
-                msgBox: $('<div></div>'),
-                sendBox: $('<div></div>'),
-                sendBtn: $('<div></div>'),
-                userName: $('<div></div>')
+                msgBox: null,
+                sendBox: null,
+                sendBtn: null,
+                userName: null
             },
             onView: function () {
             },

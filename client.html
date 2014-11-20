@@ -34,7 +34,7 @@
 
 <body>
 <div class="wrapper">
-    <div id="session1">
+    <div id="session1" style="display: none">
         <div class="loginBox">
             <h1>登录</h1>
             <div class="user">
@@ -63,15 +63,10 @@
             </div>
         </div>
     </div>
-    <div id="session3">
+    <div id="session3" style="display: block">
         <div id="hfStudyBox">
             <div id="leftCent">
-                <div id="webcamCent" >
-                    <div class="webcamBox"></div>
-                    <div class="pzBtn btn">拍照</div>
-                    <div class="cpBtn btn">重拍</div>
-                    <div class="scBtn btn">上传</div>
-                </div>
+
                 <div class="studyBoard">
                     <div class="boardCent">
                         <div class="scroll">
@@ -103,16 +98,16 @@
                 </div>
             </div>
         </div>
-        <div id="popBox">
-            <div class="maskbg"></div>
-            <div class="sureCloseBox">
-                <div class="msg">您要结束本次课程?</div>
-                <div class="cancel">取消</div>
-                <div class="end">结束</div>
-            </div>
+    </div>
+    <div id="popBox">
+        <div class="bg"></div>
+        <div id="webcamCent">
+            <div class="webcamBox"></div>
+            <div class="pzBtn btn">拍照</div>
+            <div class="cpBtn btn">重拍</div>
+            <div class="scBtn btn">上传</div>
         </div>
     </div>
-
 </div>
 <script src='assets/js/libs/jquery-1.11.1.min.js'></script>
 <script src="assets/js/libs/base64.js"></script>

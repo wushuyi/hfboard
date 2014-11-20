@@ -62,7 +62,10 @@
 
         };
 
+        var selfStream;
+
         var canvasloop;
+
         el.context = el.canvas.getContext('2d');
 
         navigator.getUserMedia({
@@ -79,7 +82,8 @@
         }, mediaSuccess, mediaError);
 
         function mediaSuccess(stream){
-            console.log(stream);
+            //console.log(stream);
+            selfStream = stream;
             el.video.width = el.canvas.width = 500;
             el.video.height = el.canvas.height = 400;
             el.video.src= util.stream2Url(stream);
@@ -99,6 +103,11 @@
         function pause(){
             el.video.pause();
             window.cancelAnimationFrame(canvasloop);
+        }
+
+        function stop(){
+            selfStream.stop();
+            $('#webcamCent .webcamBox').html('');
         }
 
         function getPhoto(){
@@ -125,6 +134,7 @@
         self.test = getPhoto;
         self.play = play;
         self.pause = pause;
+        self.stop = stop;
         self.getPhoto = getPhoto;
     }
 
