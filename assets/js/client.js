@@ -172,8 +172,30 @@
 					taskJsp.scrollToBottom();
 				});
 
-				window.hftask = hftask;
+
+				var $webcamCent = $('#webcamCent');
+				var webcam;
+				$('.taskBar .webcam', $hftaskEL).on('click', function(){
+					console.log('ok');
+					webcam = $.hfwebcam();
+					$('#popBox').show();
+					$webcamCent.show();
+				});
+				$('.pzBtn',$webcamCent).on('click', function(){
+					$('.cpBtn, .scBtn', $webcamCent).show();
+					$(this).hide();
+					webcam.pause();
+				});
+				$('.cpBtn',$webcamCent).on('click', function(){
+					$('.cpBtn, .scBtn', $webcamCent).hide();
+					$('.pzBtn', $webcamCent).show();
+					webcam.play();
+				});
+				$('.scBtn', $webcamCent).on('click', function(){
+					webcam.getPhoto();
+				});
 			});
+
 
 			var myBoard = $.hfboard($("#hfBoard"), {
 				type: "service",
@@ -181,7 +203,7 @@
 				bgImg: './assets/images/width600.png',
 				ws: ws
 			});
-			myBoard.pen();
+			//myBoard.pen();
 			setTimeout(function(){
 				myBoard.setStyle('lineCap', 'round');
 				myBoard.setStyle('strokeStyle', '#DD4814');
@@ -192,22 +214,8 @@
 			})
 		}
 
-		initSession1();
-		var $webcamCent = $('#webcamCent');
-		//var webcam = $.hfwebcam();
-		$('.pzBtn',$webcamCent).on('click', function(){
-			$('.cpBtn, .scBtn', $webcamCent).show();
-			$(this).hide();
-			webcam.pause();
-		});
-		$('.cpBtn',$webcamCent).on('click', function(){
-			$('.cpBtn, .scBtn', $webcamCent).hide();
-			$('.pzBtn', $webcamCent).show();
-			webcam.play();
-		});
-		$('.scBtn', $webcamCent).on('click', function(){
-			webcam.getPhoto();
-		});
+		initSession3();
+
 
 
 
