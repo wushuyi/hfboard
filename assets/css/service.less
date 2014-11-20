@@ -70,8 +70,9 @@ textarea:-moz-placeholder {
 }
 
 #hfStudyBox {
-  max-width: 1366px;
-  min-width: 1000px;
+//  max-width: 1366px;
+//  min-width: 1000px;
+  width: 1366px;
   height: 100%;
   margin: 0 auto;
   position: relative;
@@ -100,7 +101,7 @@ textarea:-moz-placeholder {
         width: 600px;
       }
       .jspVerticalBar {
-        width: 8px;
+        width: 14px;
         background: transparent;
         margin-right: 4px;
       }
@@ -371,6 +372,7 @@ textarea:-moz-placeholder {
   width: 656px;
   border: 1px solid #D9D9D9;
   box-shadow: #D9D9D9 0px 0px 6px;
+  display: none;
   .taskBox {
     position: absolute;
     width: 100%;
@@ -451,6 +453,302 @@ textarea:-moz-placeholder {
       position: absolute;
       width: 100%;
       bottom: 0;
+    }
+  }
+}
+
+#titBar{
+  left: 12px;
+  right: 36px;
+  height: 80px;
+  background: white;
+  position: absolute;
+  z-index: 2;
+
+  top: 0;
+  .tit{
+    font-size: 16px;
+    color: #999999;
+    margin-top: 20px;
+    padding-top: 6px;
+    float: left;
+    margin-left: 300px;
+  }
+  .closeBtn{
+    width: 100px;
+    height: 32px;
+    margin-top: 20px;
+    background: #3498DB;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    line-height: 32px;
+    text-align: center;
+    cursor: pointer;
+    float: right;
+  }
+}
+#popBox{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999999;
+  display: none;
+  .maskbg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: 0.8;
+  }
+  .sureCloseBox{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 376px;
+    height: 170px;
+    margin-top: -135px;
+    margin-left: -183px;
+    background: white;
+    border-radius: 4px;
+    font-size: 20px;
+    .msg{
+      width: 100%;
+      margin-top: 50px;
+      text-align: center;
+    }
+    .cancel, .end{
+      width: 104px;
+      height: 36px;
+      line-height: 34px;
+      text-align: center;
+      border: 1px solid #CCCCCC;
+      border-radius: 4px;
+      margin-top: 32px;
+      cursor: pointer;
+    }
+    .cancel{
+      color: #CCCCCC;
+      margin-left: 60px;
+      float: left;
+    }
+    .end{
+      color: white;
+      margin-right: 60px;
+      float: right;
+      background: #3498DB;
+    }
+  }
+  .ratyBox{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 260px;
+    height: 280px;
+    margin-top: -130px;
+    margin-left: -140px;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    font-size: 20px;
+    .topBox{
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 52px;
+      background: #F7F7F7;
+      border-bottom: 1px solid #D9D9D9;
+      .tit{
+        font-size: 18px;
+        display: inline-block;
+        margin-left: 20px;
+        margin-top: 14px;
+        float: left;
+      }
+      .num{
+        font-size: 18px;
+        display: inline-block;
+        margin-right: 20px;
+        margin-top: 14px;
+        float: right;
+        color: #B1B1B1;
+      }
+    }
+    .bottomBox{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      height: 68px;
+      background: #F7F7F7;
+      border-top: 1px solid #D9D9D9;
+      .prevBtn{
+        width: 30px;
+        height: 30px;
+        background: url('../images/prev.png') no-repeat 50% 50%;
+        overflow: hidden;
+        line-height: 99999%;
+        cursor: pointer;
+        float: left;
+        position: absolute;
+        top: 50%;
+        margin-top: -14px;
+        left: 10px;
+      }
+      .nextBtn{
+        width: 84px;
+        height: 30px;
+        background: #3498DB;
+        color: #FFFFFF;
+        border-radius: 4px;
+        text-align: center;
+        line-height: 30px;
+        font-size: 18px;
+        position: absolute;
+        left: 50%;
+        margin-left: -42px;
+        top: 50%;
+        margin-top: -14px;
+        cursor: pointer;
+      }
+    }
+    .ratyList{
+      position: absolute;
+      bottom: 68px;
+      top: 52px;
+      right: 0;
+      left: 0;
+      li{
+        width: 100%;
+        height: 54px;
+        border-bottom: 1px solid #E6E6E6;
+        &:last-of-type{
+          border-bottom: none;
+        }
+        .ratyTit{
+          margin-top: 14px;
+          margin-left: 30px;
+          font-size: 16px;
+          display: inline-block;
+        }
+        .raty{
+          width: 100px;
+          margin-top: 14px;
+          margin-right: 10px;
+          float: right;
+        }
+      }
+    }
+
+  }
+  .remarkBox{
+    position: absolute;
+    width: 350px;
+    height: 316px;
+    top: 50%;
+    left: 50%;
+    margin-top: -175px;
+    margin-left: -158px;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #F7F7F7;
+    display: none;
+    .topBox{
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 52px;
+      background: #F7F7F7;
+      border-bottom: 1px solid #D9D9D9;
+      .tit{
+        font-size: 18px;
+        display: inline-block;
+        margin-left: 20px;
+        margin-top: 14px;
+        float: left;
+      }
+      .num{
+        font-size: 18px;
+        display: inline-block;
+        margin-right: 20px;
+        margin-top: 14px;
+        float: right;
+        color: #B1B1B1;
+      }
+    }
+    .bottomBox{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      height: 68px;
+      background: #F7F7F7;
+      border-top: 1px solid #D9D9D9;
+      .prevBtn{
+        width: 30px;
+        height: 30px;
+        background: url('../images/prev.png') no-repeat 50% 50%;
+        overflow: hidden;
+        line-height: 99999%;
+        cursor: pointer;
+        float: left;
+        position: absolute;
+        top: 50%;
+        margin-top: -14px;
+        left: 10px;
+      }
+      .nextBtn{
+        width: 84px;
+        height: 30px;
+        background: #3498DB;
+        color: #FFFFFF;
+        border-radius: 4px;
+        text-align: center;
+        line-height: 30px;
+        font-size: 18px;
+        position: absolute;
+        left: 50%;
+        margin-left: -42px;
+        top: 50%;
+        margin-top: -14px;
+        cursor: pointer;
+      }
+    }
+    .centBox{
+      position: absolute;
+      bottom: 68px;
+      top: 52px;
+      right: 0;
+      left: 0;
+      li{
+        width: 100%;
+        height: 100px;
+        .remarkTit{
+          font-size: 18px;
+          display: inline-block;
+          margin-left: 20px;
+          margin-top: 14px;
+          float: left;
+        }
+        .remark{
+          width: 196px;
+          height: 72px;
+          resize: none;
+          border-radius: 4px;
+          border: 1px solid #E7E7E7;
+          margin-top: 10px;
+          margin-right: 20px;
+          float: right;
+        }
+      }
     }
   }
 }

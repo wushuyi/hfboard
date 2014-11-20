@@ -31,6 +31,10 @@
 <div class="wrapper">
 	<div id="hfStudyBox">
 		<div id="leftCent">
+			<div id="titBar">
+				<div class="tit"><p>本课程已经进行了:　<span class="runTime">0</span> 分钟</p></div>
+				<div class="closeBtn">结束课程</div>
+			</div>
 			<div class="planBox">
 				<div class="panCent">
 					<div class="scroll">
@@ -85,6 +89,59 @@
 				</div>
 			</div>
 		</div>
+
+	</div>
+
+	<div id="popBox">
+		<div class="maskbg"></div>
+		<div class="sureCloseBox">
+			<div class="msg">您要结束本次课程?</div>
+			<div class="cancel">取消</div>
+			<div class="end">结束</div>
+		</div>
+		<div class="ratyBox">
+			<div class="topBox">
+				<span class="tit">掌握情况</span> <span class="num">1/3</span>
+			</div>
+			<div class="ratyList">
+				<ul>
+					<li>
+						<span class="ratyTit">知识点 1</span><div class="raty"></div>
+					</li>
+					<li>
+						<span class="ratyTit">知识点 2</span><div class="raty"></div>
+					</li>
+					<li>
+						<span class="ratyTit">知识点 3</span><div class="raty"></div>
+					</li>
+				</ul>
+			</div>
+			<div class="bottomBox">
+				<div class="prevBtn"><</div>
+				<div class="nextBtn">下一步</div>
+			</div>
+		</div>
+		<div class="remarkBox">
+			<div class="topBox">
+				<span class="tit">写评语</span> <span class="num">1/2</span>
+			</div>
+			<div class="centBox">
+				<ul>
+					<li>
+						<span class="remarkTit">评语 1</span>
+						<textarea class="remark"></textarea>
+					</li>
+					<li>
+						<span class="remarkTit">评语 2</span>
+						<textarea class="remark"></textarea>
+					</li>
+				</ul>
+			</div>
+			<div class="bottomBox">
+				<div class="prevBtn"><</div>
+				<div class="nextBtn">结束</div>
+			</div>
+		</div>
 	</div>
 </div>
 <script src='assets/js/libs/jquery-1.11.1.min.js'></script>
@@ -96,6 +153,8 @@
 <script src="assets/js/jquery.hfboard.js"></script>
 <script src="assets/js/jquery.hftask.js"></script>
 <script src="assets/js/jquery.hfwebcam.js"></script>
+<script src="assets/js/libs/jquery.raty/jquery.raty.js"></script>
+<link rel="stylesheet" href="assets/js/libs/jquery.raty/jquery.raty.css"/>
 <script src="assets/js/service.js"></script>
 </body>
 </html>
