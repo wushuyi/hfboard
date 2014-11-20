@@ -1,11 +1,14 @@
+
+
+
 (function($){
 	$(document).ready(function (){
-		//var ws = $.websocket("ws://192.168.4.101:8080/html5/ws");
+		var ws = $.websocket("ws://192.168.3.100:8080/html5/ws");
 		//var wsUrl = "ws://" + location.host + "/html5/ws";
 		//var ws = $.websocket(wsUrl);
 
-		var ws = $.websocket("ws://localhost:8080/html5/ws");
-		window.ws = ws;
+		//var ws = $.websocket("ws://localhost:8080/html5/ws");
+		//window.ws = ws;
 
 		function initSession1(){
 			var $sessionBox1 = $("#session1");
@@ -191,7 +194,7 @@
 
 		initSession1();
 		var $webcamCent = $('#webcamCent');
-		var webcam = $.hfwebcam();
+		//var webcam = $.hfwebcam();
 		$('.pzBtn',$webcamCent).on('click', function(){
 			$('.cpBtn, .scBtn', $webcamCent).show();
 			$(this).hide();
@@ -206,13 +209,22 @@
 			webcam.getPhoto();
 		});
 
-		var base64Img = localStorage.img;
-		var originalLen = base64Img.length;
-		base64Img = base64Img.split(';base64,')[1];
-		var blob = window.base64ToBlob(base64Img, 'image/png');
-		var generatedFile = new File([blob], "test.png", {type: "image/png", lastModified: new Date()});
-		localforage.setItem('test', blob, function(){
-			console.log('ok');
+
+
+
+		$(window).on('beforeunload', function(){
+			return '你确定要离开我了吗?';
 		});
+
+
+
+		//var base64Img = localStorage.img;
+		//var originalLen = base64Img.length;
+		//base64Img = base64Img.split(';base64,')[1];
+		//var blob = window.base64ToBlob(base64Img, 'image/png');
+		//var generatedFile = new File([blob], "test.png", {type: "image/png", lastModified: new Date()});
+		//localforage.setItem('test', blob, function(){
+		//	console.log('ok');
+		//});
 	});
 })(window.jQuery);

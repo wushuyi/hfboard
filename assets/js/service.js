@@ -51,15 +51,94 @@
 		var um = UM.getEditor('myEditor');
 
 		var $taskCent = $('#taskCent');
+		$taskCent.data('isOpen', false);
 		$('.close', $taskCent).on('click', function(e){
 			$taskCent.hide();
+			$taskCent.data('isOpen', false);
 		});
 		$('.showTaskBtn').on('click', function(e){
-			$taskCent.show();
+			var isOpen = $taskCent.data('isOpen');
+			if(isOpen){
+				$taskCent.hide();
+				$taskCent.data('isOpen', false);
+			}else{
+				$taskCent.show();
+				$taskCent.data('isOpen', true);
+			}
 		});
 
 		$('#leftCent, #rightCent').on('selectstart', function(e){
 			e.preventDefault()
-		})
+		});
+
+
+		var $runTime = $('#titBar .runTime');
+		var $closeBtn = $('#titBar .closeBtn');
+
+		var titTime = {
+			runTime: new Date().getTime(),
+			oldTime: 0
+		};
+		function loopShowRunTime(){
+			var nowTime = new Date().getTime();
+			var min = (nowTime - titTime.runTime) / 1000 / 60;
+			//console.log(min);
+			min = parseInt(min);
+			if(titTime.oldTime != min){
+				$runTime.text(parseInt(min));
+			}
+		}
+		setInterval(function(){
+			loopShowRunTime();
+		}, 5000);
+
+		var $popBox = $('#popBox');
+		var $sureCloseBox = $('.sureCloseBox', $popBox);
+		var $ratyBox = $('.ratyBox', $popBox);
+		var $remarkBox = $('.remarkBox', $popBox);
+
+		$closeBtn.on('click', function(){
+			$popBox.show();
+			$sureCloseBox.show();
+		});
+		$('.cancel', $sureCloseBox).on('click', function(){
+			$popBox.hide();
+			$sureCloseBox.hide();
+		});
+		$('.end', $sureCloseBox).on('click', function(){
+			$sureCloseBox.hide();
+			$ratyBox.show();
+		});
+		$('.prevBtn', $ratyBox).on('click', function(){
+			$ratyBox.hide();
+			$sureCloseBox.show();
+		});
+		$('.nextBtn', $ratyBox).on('click', function(){
+			$ratyBox.hide();
+			$remarkBox.show();
+		});
+
+		$('.prevBtn' ,$remarkBox).on('click', function(){
+			$remarkBox.hide();
+			$ratyBox.show();
+		});
+		$('.nextBtn' ,$remarkBox).on('click', function(){
+			$sureCloseBox.hide();
+			$popBox.hide();
+			$(window).off('beforeunload');
+		});
+
+
+		$(window).on('beforeunload', function(){
+			return '你确定要离开我了吗?';
+		});
+
+		$(".ratyList .raty").raty({
+			numberMax : 3,
+			path: 'assets/js/libs/jquery.raty/images/',
+			starOff : 'off.png',
+			starOn  : 'on.png',
+			hints: ['合格', '良好', '优良']
+		});
 	});
 })(window.jQuery);

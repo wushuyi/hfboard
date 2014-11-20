@@ -113,6 +113,7 @@
             var blobUrl = util.stream2Url(generatedFile);
             console.log(blobUrl);
             console.log("原来大小: "+ originalLen +"; 新大小: " + newLen + "; 压缩率: " + newLen/originalLen + ";");
+            console.log(newLen);
         }
 
 
@@ -121,6 +122,7 @@
             console.log(err);
         }
 
+        self.test = getPhoto;
         self.play = play;
         self.pause = pause;
         self.getPhoto = getPhoto;
