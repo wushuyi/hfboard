@@ -314,6 +314,85 @@ textarea:-moz-placeholder {
   height: 10px;
   display: block;
 }
+#rightCent .taskCent .chat_content_group.buddy {
+  text-align: left;
+}
+#rightCent .taskCent .chat_content_group {
+  padding: 10px;
+}
+#rightCent .taskCent .chat_content_avatar {
+  float: left;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+#rightCent .taskCent .chat_nick {
+  font-size: 14px;
+  margin: 0 0 10px;
+}
+#rightCent .taskCent .chat_content {
+  display: inline-block;
+  min-height: 16px;
+  max-width: 50%;
+  background: #F7F7F7;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding: 10px 15px;
+  word-break: break-all;
+  border: 1px solid #E6E6E6;
+  line-height: 1.4;
+  position: relative;
+}
+#rightCent .taskCent .chat_content:before {
+  content: "";
+  display: block;
+  position: absolute;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-right: 10px solid #E6E6E6;
+  top: 0px;
+  left: -10px;
+}
+#rightCent .taskCent .chat_content:after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-right: 10px solid #F7F7F7;
+  top: 0;
+  left: -6px;
+}
+#rightCent .taskCent .chat_content_group.self {
+  text-align: right;
+}
+#rightCent .taskCent .chat_content_group.self .chat_content_avatar {
+  float: right;
+  margin: 0 0 0 10px;
+}
+#rightCent .taskCent .chat_content_group.self .chat_nick {
+  text-align: right;
+}
+#rightCent .taskCent .chat_content_group.self .chat_content {
+  text-align: left;
+}
+#rightCent .taskCent .chat_content_group.self .chat_content {
+  background: #B5E1FF;
+  border: 1px solid #93C4E6;
+}
+#rightCent .taskCent .chat_content_group.self .chat_content:before {
+  border-right: none;
+  border-left: 10px solid #93C4E6;
+  right: -10px;
+  left: auto;
+}
+#rightCent .taskCent .chat_content_group.self .chat_content:after {
+  border-right: none;
+  border-left: 10px solid #B5E1FF;
+  right: -6px;
+  left: auto;
+}
 #rightCent .taskBar {
   position: absolute;
   bottom: 0;
