@@ -12,6 +12,8 @@
 			autoReinitialise: true
 		});
 
+		var taskJsp = $('.taskCent').data('jsp');
+
 		//var um = UM.getEditor('myEditor');
 		//var uName = window.prompt('欢迎,请输入一个屌炸天的昵称吧!', '我是逗比');
 		//if(!uName){
@@ -49,6 +51,51 @@
 		});
 
 		var um = UM.getEditor('myEditor');
+		um.addListener( 'ready', function( editor ) {
+			var $taskBar = $('.taskBar');
+			var $toolbar = $('.edui-btn-toolbar', $taskBar);
+			$toolbar.append('<div class="sumBtn">发送</div>');
+			$toolbar.append('<div class="webcam"></div>');
+
+			var $hftaskEL = $('#taskCent');
+			var uName = "test";
+			var hftask = $.hftask($hftaskEL, {
+				userName: uName,
+				ws: ws,
+				el: {
+					msgBox: $('.taskCent .scroll', $hftaskEL),
+					userName: $('.taskTitle', $hftaskEL),
+					sendBox: $('#myEditor' , $hftaskEL),
+					sendBtn: $('.taskBar .sumBtn', $hftaskEL)
+				}
+			});
+			hftask.setOnView(function(){
+				taskJsp.scrollToBottom();
+			});
+
+
+			var $webcamCent = $('#webcamCent');
+			var webcam;
+			$('.taskBar .webcam', $hftaskEL).on('click', function(){
+				webcam = $.hfwebcam();
+				$('#popBox').show();
+				$webcamCent.show();
+			});
+			$('.pzBtn',$webcamCent).on('click', function(){
+				$('.cpBtn, .scBtn', $webcamCent).show();
+				$(this).hide();
+				webcam.pause();
+			});
+			$('.cpBtn',$webcamCent).on('click', function(){
+				$('.cpBtn, .scBtn', $webcamCent).hide();
+				$('.pzBtn', $webcamCent).show();
+				webcam.play();
+			});
+			$('.scBtn', $webcamCent).on('click', function(){
+				webcam.getPhoto();
+			});
+		});
+
 
 		var $taskCent = $('#taskCent');
 		$taskCent.data('isOpen', false);

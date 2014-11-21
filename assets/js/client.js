@@ -147,7 +147,8 @@
 			var taskJsp = $('.taskCent').data('jsp');
 
 			var um = UM.getEditor('myEditor');
-			var uName = window.roomName || window.prompt('欢迎,请输入一个屌炸天的昵称吧!', '我是逗比');
+			//var uName = window.roomName || window.prompt('欢迎,请输入一个屌炸天的昵称吧!', '我是逗比');
+			var uName = 'test';
 			if(!uName){
 				uName = 'anonymous';
 			}

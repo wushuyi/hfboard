@@ -183,7 +183,11 @@ textarea:-moz-placeholder {
       .swColor{
         position: absolute;
         top: 14px;
-        left: 270px;
+        left: 200px;
+        width: 150px;
+        ul{
+          float: right;
+        }
         li{
           float: left;
           width: 22px;
@@ -196,6 +200,10 @@ textarea:-moz-placeholder {
         }
         .penBlack{
           background: #000000;
+        }
+        span{
+          padding-top: 2px;
+          float: left;
         }
       }
     }
@@ -226,7 +234,7 @@ textarea:-moz-placeholder {
   }
   .panCent {
     position: absolute;
-    top: 0;
+    top: 80px;
     left: 0;
     bottom: 50px;
     width: 100%;
@@ -409,6 +417,7 @@ textarea:-moz-placeholder {
   width: 656px;
   border: 1px solid #D9D9D9;
   box-shadow: #D9D9D9 0px 0px 6px;
+  background: #FFFFFF;
   display: none;
   .taskBox {
     position: absolute;
@@ -485,11 +494,126 @@ textarea:-moz-placeholder {
         height: 10px;
         display: block;
       }
+      .chat_content_group.buddy{
+        text-align: left;
+      }
+      .chat_content_group {
+        padding: 10px;
+      }
+      .chat_content_avatar {
+        float: left;
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+      }
+      .chat_nick {
+        font-size: 14px;
+        margin: 0 0 10px;
+      }
+      .chat_content {
+        display: inline-block;
+        min-height: 16px;
+        max-width: 50%;
+        background: #F7F7F7;
+        //            background: -webkit-gradient(linear,left top,left bottom,from(#cf9),to(#9c3));
+        //            background: -webkit-linear-gradient(#cf9,#9c3);
+        //            background: -moz-linear-gradient(#cf9,#9c3);
+        //            background: -ms-linear-gradient(#cf9,#9c3);
+        //            background: -o-linear-gradient(#cf9,#9c3);
+        //            background: linear-gradient(#cf9,#9c3);
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        padding: 10px 15px;
+        word-break: break-all;
+        //            box-shadow: 1px 1px 5px #000;
+        border: 1px solid #E6E6E6;
+        line-height: 1.4;
+        position: relative;
+        &:before{
+          content: "";
+          display: block;
+          position: absolute;
+          border-top: 3px solid transparent;
+          border-bottom: 3px solid transparent;
+          border-right: 10px solid #E6E6E6;
+          top: 0px;
+          left: -10px;
+        }
+        &:after{
+          content: "";
+          display: block;
+          position: absolute;
+          border-top: 3px solid transparent;
+          border-bottom: 3px solid transparent;
+          border-right: 10px solid #F7F7F7;
+          top: 0;
+          left: -6px;
+        }
+      }
+      .chat_content_group.self {
+        text-align: right;
+        .chat_content_avatar {
+          float: right;
+          margin: 0 0 0 10px;
+        }
+        .chat_nick {
+          text-align: right;
+        }
+        .chat_content {
+          text-align: left;
+        }
+        .chat_content {
+          background: #B5E1FF;
+          border: 1px solid #93C4E6;
+          //                background: -webkit-gradient(linear,left top,left bottom,from(white,#e1e1e1));
+          //                background: -webkit-linear-gradient(white,#e1e1e1);
+          //                background: -moz-linear-gradient(white,#e1e1e1);
+          //                background: -ms-linear-gradient(white,#e1e1e1);
+          //                background: -o-linear-gradient(white,#e1e1e1);
+          //                background: linear-gradient(#fff,#e1e1e1);
+          &:before{
+            border-right: none;
+            border-left: 10px solid #93C4E6;
+            right: -10px;
+            left: auto;
+          }
+          &:after{
+            border-right: none;
+            border-left: 10px solid #B5E1FF;
+            right: -6px;
+            left: auto;
+          }
+        }
+      }
     }
     .taskBar {
       position: absolute;
       width: 100%;
       bottom: 0;
+      .sumBtn{
+        background: #3498DB;
+        width: 70px;
+        height: 28px;
+        position: absolute;
+        right: 4px;
+        top: 2px;
+        color: #FFFFFF;
+        font-size: 18px;
+        text-align: center;
+        line-height: 28px;
+        border-radius: 2px;
+        cursor: pointer;
+      }
+      .webcam{
+        cursor: pointer;
+        position: absolute;
+        width: 26px;
+        height: 22px;
+        left: 50px;
+        top: 4px;
+        background: url('../images/icons.png') no-repeat 0px -2px;
+      }
     }
   }
 }
@@ -502,6 +626,7 @@ textarea:-moz-placeholder {
   position: absolute;
   z-index: 2;
   top: 0;
+  border-bottom: 1px solid red;
   .panTitle {
     display: inline-block;
     padding: 26px 0px 14px 0px;
@@ -824,6 +949,39 @@ textarea:-moz-placeholder {
         }
       }
     }
+  }
+}
+#webcamCent{
+  position: absolute;
+  width: 502px;
+  height: 452px;
+  top: 50%;
+  left: 50%;
+  margin-left: -250px;
+  margin-top: -225px;
+  border: 1px solid #000000;
+  background: #FFFFFF;
+  box-shadow: #666 0px 0px 10px;
+  display: none;
+  .webcamBox{
+    video, canvas{
+      width: 500px;
+      height: 400px;
+    }
+  }
+  .btn{
+    width: 60px;
+    height: 30px;
+    cursor: pointer;
+    border: 1px solid #000000;
+    background: red;
+
+  }
+  .cpBtn, .scBtn  {
+    display: none;
+  }
+  .pzBtn{
+    background: red;
   }
 }
 

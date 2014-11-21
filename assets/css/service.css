@@ -175,7 +175,11 @@ textarea:-moz-placeholder {
 #rightCent .studyBoard .boardBar .swColor {
   position: absolute;
   top: 14px;
-  left: 270px;
+  left: 200px;
+  width: 150px;
+}
+#rightCent .studyBoard .boardBar .swColor ul {
+  float: right;
 }
 #rightCent .studyBoard .boardBar .swColor li {
   float: left;
@@ -189,6 +193,10 @@ textarea:-moz-placeholder {
 }
 #rightCent .studyBoard .boardBar .swColor .penBlack {
   background: #000000;
+}
+#rightCent .studyBoard .boardBar .swColor span {
+  padding-top: 2px;
+  float: left;
 }
 #hfBoard {
   width: 100%;
@@ -214,7 +222,7 @@ textarea:-moz-placeholder {
 }
 #leftCent .panCent {
   position: absolute;
-  top: 0;
+  top: 80px;
   left: 0;
   bottom: 50px;
   width: 100%;
@@ -395,6 +403,7 @@ textarea:-moz-placeholder {
   width: 656px;
   border: 1px solid #D9D9D9;
   box-shadow: #D9D9D9 0px 0px 6px;
+  background: #FFFFFF;
   display: none;
 }
 #taskCent .taskBox {
@@ -474,10 +483,112 @@ textarea:-moz-placeholder {
   height: 10px;
   display: block;
 }
+#taskCent .taskBox .taskCent .chat_content_group.buddy {
+  text-align: left;
+}
+#taskCent .taskBox .taskCent .chat_content_group {
+  padding: 10px;
+}
+#taskCent .taskBox .taskCent .chat_content_avatar {
+  float: left;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+#taskCent .taskBox .taskCent .chat_nick {
+  font-size: 14px;
+  margin: 0 0 10px;
+}
+#taskCent .taskBox .taskCent .chat_content {
+  display: inline-block;
+  min-height: 16px;
+  max-width: 50%;
+  background: #F7F7F7;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding: 10px 15px;
+  word-break: break-all;
+  border: 1px solid #E6E6E6;
+  line-height: 1.4;
+  position: relative;
+}
+#taskCent .taskBox .taskCent .chat_content:before {
+  content: "";
+  display: block;
+  position: absolute;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-right: 10px solid #E6E6E6;
+  top: 0px;
+  left: -10px;
+}
+#taskCent .taskBox .taskCent .chat_content:after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-right: 10px solid #F7F7F7;
+  top: 0;
+  left: -6px;
+}
+#taskCent .taskBox .taskCent .chat_content_group.self {
+  text-align: right;
+}
+#taskCent .taskBox .taskCent .chat_content_group.self .chat_content_avatar {
+  float: right;
+  margin: 0 0 0 10px;
+}
+#taskCent .taskBox .taskCent .chat_content_group.self .chat_nick {
+  text-align: right;
+}
+#taskCent .taskBox .taskCent .chat_content_group.self .chat_content {
+  text-align: left;
+}
+#taskCent .taskBox .taskCent .chat_content_group.self .chat_content {
+  background: #B5E1FF;
+  border: 1px solid #93C4E6;
+}
+#taskCent .taskBox .taskCent .chat_content_group.self .chat_content:before {
+  border-right: none;
+  border-left: 10px solid #93C4E6;
+  right: -10px;
+  left: auto;
+}
+#taskCent .taskBox .taskCent .chat_content_group.self .chat_content:after {
+  border-right: none;
+  border-left: 10px solid #B5E1FF;
+  right: -6px;
+  left: auto;
+}
 #taskCent .taskBox .taskBar {
   position: absolute;
   width: 100%;
   bottom: 0;
+}
+#taskCent .taskBox .taskBar .sumBtn {
+  background: #3498DB;
+  width: 70px;
+  height: 28px;
+  position: absolute;
+  right: 4px;
+  top: 2px;
+  color: #FFFFFF;
+  font-size: 18px;
+  text-align: center;
+  line-height: 28px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+#taskCent .taskBox .taskBar .webcam {
+  cursor: pointer;
+  position: absolute;
+  width: 26px;
+  height: 22px;
+  left: 50px;
+  top: 4px;
+  background: url('../images/icons.png') no-repeat 0px -2px;
 }
 #titBar {
   left: 12px;
@@ -487,6 +598,7 @@ textarea:-moz-placeholder {
   position: absolute;
   z-index: 2;
   top: 0;
+  border-bottom: 1px solid red;
 }
 #titBar .panTitle {
   display: inline-block;
@@ -810,6 +922,38 @@ textarea:-moz-placeholder {
   margin-top: 10px;
   margin-right: 35px;
   float: right;
+}
+#webcamCent {
+  position: absolute;
+  width: 502px;
+  height: 452px;
+  top: 50%;
+  left: 50%;
+  margin-left: -250px;
+  margin-top: -225px;
+  border: 1px solid #000000;
+  background: #FFFFFF;
+  box-shadow: #666 0px 0px 10px;
+  display: none;
+}
+#webcamCent .webcamBox video,
+#webcamCent .webcamBox canvas {
+  width: 500px;
+  height: 400px;
+}
+#webcamCent .btn {
+  width: 60px;
+  height: 30px;
+  cursor: pointer;
+  border: 1px solid #000000;
+  background: red;
+}
+#webcamCent .cpBtn,
+#webcamCent .scBtn {
+  display: none;
+}
+#webcamCent .pzBtn {
+  background: red;
 }
 /* Media queries
 -------------------------------------------------------------------------------*/
