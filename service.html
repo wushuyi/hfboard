@@ -29,82 +29,104 @@
 
 <body>
 <div class="wrapper">
-	<div id="hfStudyBox">
-		<div id="leftCent">
-			<div id="titBar">
-				<h1 class="panTitle">教案</h1>
-				<div class="tit"><p>本课程已经进行了:　<span class="runTime">0</span> 分钟</p></div>
-				<div class="closeBtn">结束课程</div>
+	<div id="session1" style="display: block">
+		<div class="loginBox">
+			<h1>登录</h1>
+			<div class="user">
+				<span>用户名: </span>
+				<input type="text" name="user">
 			</div>
-			<div class="planBox">
-				<div class="panCent">
-					<div class="scroll">
-						<div>
-							<img src="./assets/images/2014-11-21_114457.png" style="margin: 0 auto"/>
-						</div>
-					</div>
-				</div>
-				<div class="planBar">
-					<div class="showTaskBtn">聊天</div>
-					<div class="errorBtn">加入错题本</div>
-					<div class="playVideoBtn">直播</div>
-					<div class="playSoundBtn">录音</div>
-					<div class="morePlen">更多讲义</div>
-					<div class="prev"> < </div>
-					<div class="num">1</div>
-					<div class="next"> > </div>
+			<div class="passwd">
+				<span>密码: </span>
+				<input type="password" name="passwd">
+			</div>
+			<div class="submit">
+				<button>确认</button>
+			</div>
+		</div>
+	</div>
+	<div id="session2">
+		<div class="roomCent">
+			<div class="toolBar">
+				<button class="createRoom">创建房间</button>
+			</div>
+			<div class="roomBox">
+				<div class="scroll">
+					<ul class="roomList">
+					</ul>
 				</div>
 			</div>
 		</div>
-		<div id="taskCent">
-			<div class="taskBox">
-				<h2 class="taskTitle">老师A</h2>
-				<div class="close"></div>
-				<div class="taskCent">
-					<div class="scroll">
-						<div class="chat_content_group self  ">
-							<img class="chat_content_avatar" src="http://face3.web.qq.com/cgi/svr/face/getface?cache=1&amp;type=1&amp;f=40&amp;uin=759634533&amp;t=1416537680&amp;vfwebqq=dc2f1bb4431bf8a77365e1da1c3134d4dd6bd73af5688d8942c6931810eda93c55324c71d8a05ee7" width="40px" height="40px">
-							<p class="chat_nick">巫书轶</p>
-							<p class="chat_content ">老师,这里我不懂啊!</p>
+	</div>
+	<div id="session3">
+		<div id="hfStudyBox">
+			<div id="leftCent">
+				<div id="titBar">
+					<h1 class="panTitle">教案</h1>
+					<div class="tit"><p>本课程已经进行了:　<span class="runTime">0</span> 分钟</p></div>
+					<div class="closeBtn">结束课程</div>
+				</div>
+				<div class="planBox">
+					<div class="panCent">
+						<div class="scroll">
+							<div>
+								<img src="./assets/images/2014-11-21_114457.png" style="margin: 0 auto"/>
+							</div>
 						</div>
+					</div>
+					<div class="planBar">
+						<div class="showTaskBtn">聊天</div>
+						<div class="errorBtn">加入错题本</div>
+						<div class="playVideoBtn">直播</div>
+						<div class="playSoundBtn">录音</div>
+						<div class="morePlen">更多讲义</div>
+						<div class="prev"> < </div>
+						<div class="num">1</div>
+						<div class="next"> > </div>
+					</div>
+				</div>
+			</div>
+			<div id="taskCent">
+				<div class="taskBox">
+					<h2 class="taskTitle">老师A</h2>
+					<div class="close"></div>
+					<div class="taskCent">
+						<div class="scroll">
 
-						<div class="chat_content_group buddy need_update ">
-							<img class="chat_content_avatar" src="http://face5.web.qq.com/cgi/svr/face/getface?cache=1&amp;type=1&amp;f=40&amp;uin=3796991735&amp;t=1416537675&amp;vfwebqq=dc2f1bb4431bf8a77365e1da1c3134d4dd6bd73af5688d8942c6931810eda93c55324c71d8a05ee7" width="40px" height="40px">
-							<p class="chat_nick">海风大神</p>
-							<p class="chat_content ">上课要好好听啊!......</p>
 						</div>
 					</div>
-				</div>
-				<div class="taskBar">
-					<div id="myEditor" contenteditable="true"></div>
-				</div>
-			</div>
-		</div>
-		<div id="rightCent">
-			<div class="studyBoard">
-				<div class="boardCent">
-					<div class="scroll">
-						<h1 class="boardTitle">题目 <span>1</span></h1>
-						<div id="hfBoard"></div>
+					<div class="taskBar">
+						<div id="myEditor" contenteditable="true"></div>
 					</div>
 				</div>
-				<div class="boardBar">
-					<div class="soundBtn"></div>
-					<div class="answerBtn"><label>
-						<input type="checkbox" name="CheckboxGroup1" value="学生答题" id="CheckboxGroup1_1">
-						学生答题</label></div>
-					<div class="swColor">
-						<span>笔迹颜色</span>
-						<ul>
-							<li class="penRed"></li>
-							<li class='penBlack'></li>
-						</ul>
+			</div>
+			<div id="rightCent">
+				<div class="studyBoard">
+					<div class="boardCent">
+						<div class="scroll">
+							<h1 class="boardTitle">题目 <span>1</span></h1>
+							<div id="hfBoard"></div>
+						</div>
 					</div>
-					<div class="prev"> < </div>
-					<div class="num">1</div>
-					<div class="next"> > </div>
+					<div class="boardBar">
+						<div class="soundBtn"></div>
+						<div class="answerBtn"><label>
+							<input type="checkbox" name="CheckboxGroup1" value="学生答题" id="CheckboxGroup1_1">
+							学生答题</label></div>
+						<div class="swColor">
+							<span>笔迹颜色</span>
+							<ul>
+								<li class="penRed"></li>
+								<li class='penBlack'></li>
+							</ul>
+						</div>
+						<div class="prev"> < </div>
+						<div class="num">1</div>
+						<div class="next"> > </div>
+					</div>
 				</div>
 			</div>
+
 		</div>
 
 	</div>
@@ -167,7 +189,10 @@
 		</div>
 	</div>
 </div>
+
 <script src='assets/js/libs/jquery-1.11.1.min.js'></script>
+<script src="assets/js/libs/base64.js"></script>
+<script src="assets/js/libs/base64toblob.js"></script>
 <script src="assets/js/libs/jquery.websocket.js"></script>
 <script src="assets/js/libs/jquery.mousewheel-3.1.11.min.js"></script>
 <script src='assets/js/libs/jscrollpane-2.0.14/jquery.jscrollpane.js'></script>
@@ -178,6 +203,8 @@
 <script src="assets/js/jquery.hfwebcam.js"></script>
 <script src="assets/js/libs/jquery.raty/jquery.raty.js"></script>
 <link rel="stylesheet" href="assets/js/libs/jquery.raty/jquery.raty.css"/>
+
 <script src="assets/js/service.js"></script>
+
 </body>
 </html>

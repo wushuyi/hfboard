@@ -35,7 +35,7 @@
             onView: function () {
             },
             onSend: function () {
-            },
+            }
         };
         if (typeof options === "object") {
             $.extend(settings, options);
@@ -104,21 +104,32 @@
                 user: options.userName
             };
             socket.send(taskData);
-            msgView(taskData);
+            msgView(taskData, 'self');
             options.onSend();
         }
 
-        function msgView(taskData) {
+        function msgView(taskData, type) {
             var el = options.el;
-            var taskView = '<p><span class="taskname">' + taskData.user + ': </span><span class="tasktext">' + taskData.text + '</span></p>';
+            var taskView;
+            if(type == 'self'){
+                taskView = '<div class="chat_content_group self  ">' +
+                '<img class="chat_content_avatar" src="'+'https://avatars1.githubusercontent.com/u/1024025?v=3&s=460'+'" width="40px" height="40px">' +
+                '<p class="chat_nick">'+taskData.user+'</p>' +
+                '<div class="chat_content ">'+ taskData.text +'</div>' +
+                '</div>';
+            }else if(type == "other"){
+                taskView = '<div class="chat_content_group buddy  ">' +
+                '<img class="chat_content_avatar" src="'+'https://avatars2.githubusercontent.com/u/25254?v=3&s=192'+'" width="40px" height="40px">' +
+                '<p class="chat_nick">'+taskData.user+'</p>' +
+                '<div class="chat_content ">'+ taskData.text +'</div>' +
+                '</div>';
+            }
             el.msgBox.append(taskView);
             options.onView();
         }
 
         function receiveMsg(taskData) {
-            if (taskData.user != options.userName) {
-                msgView(taskData);
-            }
+            msgView(taskData, 'other');
         }
 
         self.options = options;

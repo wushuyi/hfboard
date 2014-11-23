@@ -18,7 +18,6 @@
 		var self = this;
 		var defaults = {
 			type: 'service',
-			userName: 'anonymous',
 			width: null,
 			height: null,
 			bgImg: null,
@@ -71,8 +70,17 @@
 			drawBackground(imgSrc);
 		}
 
-		function setStyle(key, value){
+		function setStyle(key, value , unSend){
 			context[key] = value;
+
+			if(unSend){return false;}
+
+			var drawData = {
+				type: 'style',
+				key: key,
+				value: value
+			};
+			sendDrawData(drawData);
 		}
 
 		function penInit(){
@@ -116,7 +124,7 @@
 		}
 
 
-		function penDraw(drawData){
+		function penDraw(drawData, unSend){
 			switch (drawData.event){
 				case "setStyle":
 					break;
@@ -131,7 +139,7 @@
 				case "up":
 					context.closePath();
 			}
-			if(drawData.remote){
+			if(unSend){
 				return false;
 			}
 			sendDrawData(drawData);
@@ -139,16 +147,44 @@
 		function sendDrawData(drawData){
 			socket.send(drawData);
 		}
+		var JscrollFn = setting.jScrollPane.data('jsp');
 
 		function receiveDrawData(drawData){
 			//console.log(drawData);
-			drawData.remote = true;
 			switch (drawData.type){
 				case "pen":
-					penDraw(drawData);
+					penDraw(drawData, true);
+					break;
+				case "style":
+					setStyle(drawData.key, drawData.value, true);
+					break;
+				case 'scroll':
+					scrollToY(drawData, true);
 					break;
 			}
 		}
+
+		function scrollToY(drawData, unSend){
+			JscrollFn.scrollToY(drawData.scrollY);
+		}
+
+		function ctlScroll(){
+			setting.jScrollPane.on('jsp-scroll-y', function(e, destTop, isAtTop, isAtBottom){
+				//console.log(e);
+				var drawData = {
+					type: 'scroll',
+					scrollY : destTop
+				};
+				sendDrawData(drawData);
+			});
+		}
+
+		function unCtlScroll(){
+			setting.jScrollPane.off('jsp-scroll-y');
+		}
+
+
+
 
 		self.init = init;
 		self.drawBackground = drawBackground;
@@ -157,10 +193,10 @@
 			penInit();
 			penEvent();
 		};
-
 		self.setStyle = setStyle;
-
 		self.init();
+		self.ctlScroll = ctlScroll;
+		self.unCtlScroll = unCtlScroll;
 	}
 
 	function board($el, options){

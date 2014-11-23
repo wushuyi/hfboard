@@ -14,11 +14,11 @@ var util = {
 };
 
 function uploadToken(data){
-    //console.log(data);
-    //var fileName = data.key;
-    //var token = data.uploadToken;
-    var fileName = "90e00db7b02a40279ab93cc053562a24";
-    var token = "nym-Mch3cG-ndSeGCsrdqG6qe4PWFHbFXv3LWNTo:gBwoBNSXJvmVla-kwu6o8IoTrAM=:eyJzY29wZSI6Imh5cGhlbiIsInNhdmVLZXkiOiI5MGUwMGRiN2IwMmE0MDI3OWFiOTNjYzA1MzU2MmEyNCIsImRlYWRsaW5lIjoxNDE2MjIyMDc1fQ==";
+    console.log(data);
+    var fileName = data.key;
+    var token = data.uploadToken;
+    //var fileName = "90e00db7b02a40279ab93cc053562a24";
+    //var token = "nym-Mch3cG-ndSeGCsrdqG6qe4PWFHbFXv3LWNTo:gBwoBNSXJvmVla-kwu6o8IoTrAM=:eyJzY29wZSI6Imh5cGhlbiIsInNhdmVLZXkiOiI5MGUwMGRiN2IwMmE0MDI3OWFiOTNjYzA1MzU2MmEyNCIsImRlYWRsaW5lIjoxNDE2MjIyMDc1fQ==";
 
     var base64Img = localStorage.img;
     var originalLen = base64Img.length;
