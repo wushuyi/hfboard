@@ -93,6 +93,7 @@
             el.sendBtn.on("click", function (e) {
                 var $sendBox = el.sendBox;
                 var text = $sendBox.html();
+                console.log(text);
                 sendMsg(text);
                 $sendBox.html('');
             });

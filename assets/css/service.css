@@ -267,6 +267,7 @@ textarea:-moz-placeholder {
   right: 66px;
   font-size: 20px;
   color: #747474;
+  cursor: pointer;
 }
 #rightCent .studyBoard .boardBar .swColor {
   position: absolute;
@@ -293,6 +294,84 @@ textarea:-moz-placeholder {
 #rightCent .studyBoard .boardBar .swColor span {
   padding-top: 2px;
   float: left;
+}
+#rightCent .studyBoard .boardBar .sessionPop {
+  position: absolute;
+  width: 429px;
+  height: 270px;
+  bottom: 68px;
+  right: 46px;
+  background: #FFFFFF;
+  border: 1px solid #D9D9D9;
+  box-shadow: #D9D9D9 0px 0px 6px;
+}
+#rightCent .studyBoard .boardBar .sessionPop .jspVerticalBar {
+  width: 8px;
+  background: transparent;
+  margin-right: 4px;
+}
+#rightCent .studyBoard .boardBar .sessionPop .jspTrack {
+  background: transparent;
+}
+#rightCent .studyBoard .boardBar .sessionPop .jspDrag {
+  background: #E6E6E6;
+}
+#rightCent .studyBoard .boardBar .sessionPop .jspCap {
+  height: 10px;
+  display: block;
+}
+#rightCent .studyBoard .boardBar .sessionPop .sessionList {
+  float: right;
+  width: 426px;
+  padding-top: 16px;
+  padding-bottom: 10px;
+  margin-right: -1px;
+  position: relative;
+}
+#rightCent .studyBoard .boardBar .sessionPop .sessionList:after {
+  content: "";
+  display: block;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 24px;
+  right: 24px;
+  background: #E6E6E6;
+}
+#rightCent .studyBoard .boardBar .sessionPop .sessionList:last-of-type:after {
+  display: none;
+}
+#rightCent .studyBoard .boardBar .sessionPop .sessionList .className {
+  float: left;
+  width: 100px;
+  line-height: 36px;
+  text-align: center;
+  margin-top: 24px;
+  margin-left: 30px;
+  font-size: 16px;
+  color: #3498DB;
+}
+#rightCent .studyBoard .boardBar .sessionPop .sessionList .classList {
+  width: 280px;
+  float: right;
+}
+#rightCent .studyBoard .boardBar .sessionPop .sessionList .classList li {
+  float: left;
+  width: 28px;
+  height: 28px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  margin: 8px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 26px;
+  cursor: pointer;
+}
+#rightCent .studyBoard .boardBar .sessionPop .sessionList .classList li:hover {
+  border: 1px solid #3498DB;
+}
+#rightCent .studyBoard .boardBar .sessionPop .sessionList .classList li.action {
+  border: 1px solid #3498DB;
 }
 #hfBoard {
   width: 100%;
@@ -490,6 +569,7 @@ textarea:-moz-placeholder {
   right: 66px;
   font-size: 20px;
   color: #747474;
+  cursor: pointer;
 }
 #taskCent {
   position: absolute;
@@ -1050,6 +1130,26 @@ textarea:-moz-placeholder {
 }
 #webcamCent .pzBtn {
   background: red;
+}
+#imgZoomBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+}
+#imgZoomBox .close {
+  position: absolute;
+  color: #FFFFFF;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+}
+#imgZoomBox .imgBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
 /* Media queries
 -------------------------------------------------------------------------------*/

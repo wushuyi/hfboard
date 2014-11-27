@@ -9778,8 +9778,8 @@ UM.ui.define('separator', {
 
             });
 
-            $container.find('.edui-editor-body').append($editorCont).before(this.createToolbar(editor.options, editor));
-
+            //$container.find('.edui-editor-body').append($editorCont).before(this.createToolbar(editor.options, editor));
+            $container.find('.edui-editor-body').append($editorCont).after(this.createToolbar(editor.options, editor));
             $container.find('.edui-toolbar').append($('<div class="edui-dialog-container"></div>'));
 
 

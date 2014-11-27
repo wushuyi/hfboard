@@ -62,15 +62,16 @@ textarea:-moz-placeholder {
   outline: none;
 }
 
-.wrapper, #session1, #session2, #session3{
+.wrapper, #session1, #session2, #session3 {
   position: absolute;
   top: 0;
   bottom: 0;
   width: 100%;
 }
-#session1{
+
+#session1 {
   display: none;
-  .loginBox{
+  .loginBox {
     width: 400px;
     height: 300px;
     margin-left: -200px;
@@ -80,23 +81,23 @@ textarea:-moz-placeholder {
     top: 50%;
     left: 50%;
     box-shadow: #666 0px 0px 10px;
-    h1{
+    h1 {
       font-size: 30px;
       text-align: center;
       padding-top: 30px;
       padding-bottom: 30px;
     }
-    .user, .passwd, .submit{
+    .user, .passwd, .submit {
       padding-top: 10px;
       padding-bottom: 10px;
       padding-left: 80px;
       padding-right: 80px;
-      span{
+      span {
         display: inline-block;
         width: 60px;
       }
     }
-    .submit button{
+    .submit button {
       width: 100px;
       height: 40px;
       display: block;
@@ -104,9 +105,10 @@ textarea:-moz-placeholder {
     }
   }
 }
-#session2{
+
+#session2 {
   display: none;
-  .roomCent{
+  .roomCent {
     width: 300px;
     position: absolute;
     top: 100px;
@@ -116,38 +118,38 @@ textarea:-moz-placeholder {
     border: 1px solid #000000;
     box-shadow: #666 0px 0px 10px;
   }
-  .toolBar{
+  .toolBar {
     position: absolute;
     top: 0;
     height: 30px;
     width: 100%;
     border-bottom: 1px solid #000000;
-    .createRoom{
+    .createRoom {
 
     }
   }
-  .roomBox{
+  .roomBox {
     position: absolute;
     top: 30px;
     width: 100%;
     bottom: 0px;
-    .jspVerticalBar{
+    .jspVerticalBar {
       width: 8px;
       background: transparent;
       margin-right: 4px;
     }
-    .jspTrack{
+    .jspTrack {
       background: transparent;
     }
-    .jspDrag{
+    .jspDrag {
       background: #E6E6E6;
     }
-    .jspCap{
+    .jspCap {
       height: 10px;
       display: block;
     }
   }
-  .roomList li{
+  .roomList li {
     width: 298px;
     height: 60px;
     border-top: 1px dotted red;
@@ -157,13 +159,14 @@ textarea:-moz-placeholder {
     cursor: pointer;
   }
 }
-#session3{
+
+#session3 {
   display: none;
 }
 
 #hfStudyBox {
-//  max-width: 1366px;
-//  min-width: 1000px;
+  //  max-width: 1366px;
+  //  min-width: 1000px;
   width: 1366px;
   height: 100%;
   margin: 0 auto;
@@ -233,7 +236,7 @@ textarea:-moz-placeholder {
         cursor: pointer;
         background: url('../images/icons.png') no-repeat -114px -2px;
       }
-      .answerBtn{
+      .answerBtn {
         position: absolute;
         left: 91px;
         top: 16px;
@@ -271,31 +274,116 @@ textarea:-moz-placeholder {
         right: 66px;
         font-size: 20px;
         color: #747474;
+        cursor: pointer;
       }
-      .swColor{
+      .swColor {
         position: absolute;
         top: 14px;
         left: 200px;
         width: 150px;
-        ul{
+        ul {
           float: right;
         }
-        li{
+        li {
           float: left;
           width: 22px;
           height: 22px;
           margin-left: 20px;
           cursor: pointer;
         }
-        .penRed{
+        .penRed {
           background: red;
         }
-        .penBlack{
+        .penBlack {
           background: #000000;
         }
-        span{
+        span {
           padding-top: 2px;
           float: left;
+        }
+      }
+      .sessionPop {
+        position: absolute;
+        width: 429px;
+        height: 270px;
+        bottom: 68px;
+        right: 46px;
+        background: #FFFFFF;
+        border: 1px solid #D9D9D9;
+        box-shadow: #D9D9D9 0px 0px 6px;
+        .jspVerticalBar {
+          width: 8px;
+          background: transparent;
+          margin-right: 4px;
+        }
+        .jspTrack {
+          background: transparent;
+        }
+        .jspDrag {
+          background: #E6E6E6;
+        }
+        .jspCap {
+          height: 10px;
+          display: block;
+        }
+        .sessionList {
+//          background: red;
+          float: right;
+          width: 426px;
+          padding-top: 16px;
+          padding-bottom: 10px;
+          margin-right: -1px;
+          position: relative;
+          &:after{
+            content: "";
+            display: block;
+            height: 1px;
+            position: absolute;
+            bottom: 0;
+            left: 24px;
+            right: 24px;
+            background: #E6E6E6;
+          }
+          &:last-of-type:after{
+            display: none;
+          }
+          .className {
+            float: left;
+            width: 100px;
+            line-height: 36px;
+            text-align: center;
+            margin-top: 24px;
+            margin-left: 30px;
+            font-size: 16px;
+            color: #3498DB;
+//            cursor: pointer;
+          }
+          .classList {
+//            background: red;
+            width: 280px;
+            float: right;
+           //margin-right: 26px;
+            li {
+              float: left;
+              width: 28px;
+              height: 28px;
+              border: 1px solid transparent;
+              border-radius: 2px;
+              margin: 8px;
+//              background: yellow;
+              text-align: center;
+              font-size: 16px;
+              line-height: 26px;
+              cursor: pointer;
+              &:hover{
+                border: 1px solid #3498DB;
+              }
+              &.action{
+                 border: 1px solid #3498DB;
+              }
+            }
+          }
+
         }
       }
     }
@@ -382,7 +470,7 @@ textarea:-moz-placeholder {
         left: 0px;
       }
     }
-    .errorBtn{
+    .errorBtn {
       width: 131px;
       height: 22px;
       position: absolute;
@@ -497,7 +585,9 @@ textarea:-moz-placeholder {
       right: 66px;
       font-size: 20px;
       color: #747474;
+      cursor: pointer;
     }
+
   }
 }
 
@@ -562,13 +652,13 @@ textarea:-moz-placeholder {
       height: 26px;
       background: url('../images/icons3.png') no-repeat -62px 8px;
     }
-    .taskCent{
+    .taskCent {
       position: absolute;
       width: 100%;
       top: 28px;
       bottom: 135px;
       overflow: hidden;
-      .scroll{
+      .scroll {
         width: 654px;
       }
       .jspVerticalBar {
@@ -586,7 +676,7 @@ textarea:-moz-placeholder {
         height: 10px;
         display: block;
       }
-      .chat_content_group.buddy{
+      .chat_content_group.buddy {
         text-align: left;
       }
       .chat_content_group {
@@ -622,7 +712,7 @@ textarea:-moz-placeholder {
         border: 1px solid #E6E6E6;
         line-height: 1.4;
         position: relative;
-        &:before{
+        &:before {
           content: "";
           display: block;
           position: absolute;
@@ -632,7 +722,7 @@ textarea:-moz-placeholder {
           top: 0px;
           left: -10px;
         }
-        &:after{
+        &:after {
           content: "";
           display: block;
           position: absolute;
@@ -664,13 +754,13 @@ textarea:-moz-placeholder {
           //                background: -ms-linear-gradient(white,#e1e1e1);
           //                background: -o-linear-gradient(white,#e1e1e1);
           //                background: linear-gradient(#fff,#e1e1e1);
-          &:before{
+          &:before {
             border-right: none;
             border-left: 10px solid #93C4E6;
             right: -10px;
             left: auto;
           }
-          &:after{
+          &:after {
             border-right: none;
             border-left: 10px solid #B5E1FF;
             right: -6px;
@@ -683,7 +773,7 @@ textarea:-moz-placeholder {
       position: absolute;
       width: 100%;
       bottom: 0;
-      .sumBtn{
+      .sumBtn {
         background: #3498DB;
         width: 70px;
         height: 28px;
@@ -697,7 +787,7 @@ textarea:-moz-placeholder {
         border-radius: 2px;
         cursor: pointer;
       }
-      .webcam{
+      .webcam {
         cursor: pointer;
         position: absolute;
         width: 26px;
@@ -710,7 +800,7 @@ textarea:-moz-placeholder {
   }
 }
 
-#titBar{
+#titBar {
   left: 12px;
   right: 36px;
   height: 80px;
@@ -728,7 +818,7 @@ textarea:-moz-placeholder {
     left: 31px;
     border-bottom: 1px solid #D9D9D9;
   }
-  .tit{
+  .tit {
     font-size: 16px;
     color: #999999;
     margin-top: 20px;
@@ -736,7 +826,7 @@ textarea:-moz-placeholder {
     float: left;
     margin-left: 300px;
   }
-  .closeBtn{
+  .closeBtn {
     width: 100px;
     height: 32px;
     margin-top: 20px;
@@ -751,7 +841,8 @@ textarea:-moz-placeholder {
     float: right;
   }
 }
-#popBox{
+
+#popBox {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -759,7 +850,7 @@ textarea:-moz-placeholder {
   right: 0;
   z-index: 9999999;
   display: none;
-  .maskbg{
+  .maskbg {
     position: absolute;
     top: 0;
     left: 0;
@@ -768,7 +859,7 @@ textarea:-moz-placeholder {
     background: #000000;
     opacity: 0.8;
   }
-  .sureCloseBox{
+  .sureCloseBox {
     display: none;
     position: absolute;
     top: 50%;
@@ -780,12 +871,12 @@ textarea:-moz-placeholder {
     background: white;
     border-radius: 3px;
     font-size: 20px;
-    .msg{
+    .msg {
       width: 100%;
       margin-top: 50px;
       text-align: center;
     }
-    .cancel{
+    .cancel {
       width: 104px;
       height: 32px;
       line-height: 30px;
@@ -796,19 +887,19 @@ textarea:-moz-placeholder {
       cursor: pointer;
       font-size: 16px;
     }
-    .end{
+    .end {
       width: 104px;
       height: 32px;
       line-height: 30px;
       text-align: center;
       background: #3498DB;
-      border:0;
+      border: 0;
       border-radius: 3px;
       margin-top: 32px;
       cursor: pointer;
       font-size: 16px;
     }
-    .cancel:hover, .end:hover{
+    .cancel:hover, .end:hover {
       width: 104px;
       height: 32px;
       color: #FFFFFF;
@@ -821,19 +912,19 @@ textarea:-moz-placeholder {
       font-size: 16px;
       background: #3498DB;
     }
-    .cancel{
+    .cancel {
       color: #CCCCCC;
       margin-left: 60px;
       float: left;
     }
-    .end{
+    .end {
       color: white;
       margin-right: 60px;
       float: right;
       background: #3498DB;
     }
   }
-  .ratyBox{
+  .ratyBox {
     display: none;
     position: absolute;
     top: 50%;
@@ -846,7 +937,7 @@ textarea:-moz-placeholder {
     border-radius: 3px;
     overflow: hidden;
     font-size: 20px;
-    .topBox{
+    .topBox {
       position: absolute;
       top: 0;
       right: 0;
@@ -854,7 +945,7 @@ textarea:-moz-placeholder {
       height: 52px;
       background: #F7F7F7;
       border-bottom: 1px solid #D9D9D9;
-      .tit{
+      .tit {
         font-size: 18px;
         font-weight: bold;
         display: inline-block;
@@ -862,7 +953,7 @@ textarea:-moz-placeholder {
         margin-top: 14px;
         float: left;
       }
-      .num{
+      .num {
         font-size: 18px;
         display: inline-block;
         margin-right: 20px;
@@ -871,7 +962,7 @@ textarea:-moz-placeholder {
         color: #B1B1B1;
       }
     }
-    .bottomBox{
+    .bottomBox {
       position: absolute;
       bottom: 0;
       right: 0;
@@ -879,7 +970,7 @@ textarea:-moz-placeholder {
       height: 68px;
       background: #F7F7F7;
       border-top: 1px solid #D9D9D9;
-      .prevBtn{
+      .prevBtn {
         width: 30px;
         height: 30px;
         background: url('../images/prev.png') no-repeat 50% 50%;
@@ -892,7 +983,7 @@ textarea:-moz-placeholder {
         margin-top: -14px;
         left: 10px;
       }
-      .nextBtn{
+      .nextBtn {
         padding: 0 30px;
         height: 30px;
         background: #3498DB;
@@ -909,26 +1000,26 @@ textarea:-moz-placeholder {
         cursor: pointer;
       }
     }
-    .ratyList{
+    .ratyList {
       position: absolute;
       bottom: 68px;
       top: 52px;
       right: 0;
       left: 0;
-      li{
+      li {
         width: 100%;
         height: 54px;
         border-bottom: 1px solid #E6E6E6;
-        &:last-of-type{
+        &:last-of-type {
           border-bottom: none;
         }
-        .ratyTit{
+        .ratyTit {
           margin-top: 14px;
           margin-left: 30px;
           font-size: 16px;
           display: inline-block;
         }
-        .raty{
+        .raty {
           width: 100px;
           margin-top: 14px;
           margin-right: 10px;
@@ -938,7 +1029,7 @@ textarea:-moz-placeholder {
     }
 
   }
-  .remarkBox{
+  .remarkBox {
     position: absolute;
     width: 350px;
     height: 316px;
@@ -950,7 +1041,7 @@ textarea:-moz-placeholder {
     overflow: hidden;
     background: #F7F7F7;
     display: none;
-    .topBox{
+    .topBox {
       position: absolute;
       top: 0;
       right: 0;
@@ -958,7 +1049,7 @@ textarea:-moz-placeholder {
       height: 52px;
       background: #F7F7F7;
       border-bottom: 1px solid #D9D9D9;
-      .tit{
+      .tit {
         font-size: 18px;
         font-weight: bold;
         display: inline-block;
@@ -966,7 +1057,7 @@ textarea:-moz-placeholder {
         margin-top: 14px;
         float: left;
       }
-      .num{
+      .num {
         font-size: 18px;
         display: inline-block;
         margin-right: 20px;
@@ -975,7 +1066,7 @@ textarea:-moz-placeholder {
         color: #B1B1B1;
       }
     }
-    .bottomBox{
+    .bottomBox {
       position: absolute;
       bottom: 0;
       right: 0;
@@ -983,7 +1074,7 @@ textarea:-moz-placeholder {
       height: 68px;
       background: #F7F7F7;
       border-top: 1px solid #D9D9D9;
-      .prevBtn{
+      .prevBtn {
         width: 30px;
         height: 30px;
         background: url('../images/prev.png') no-repeat 50% 50%;
@@ -996,7 +1087,7 @@ textarea:-moz-placeholder {
         margin-top: -14px;
         left: 10px;
       }
-      .nextBtn{
+      .nextBtn {
         padding: 0 30px;
         height: 30px;
         background: #3498DB;
@@ -1013,23 +1104,23 @@ textarea:-moz-placeholder {
         cursor: pointer;
       }
     }
-    .centBox{
+    .centBox {
       position: absolute;
       bottom: 68px;
       top: 52px;
       right: 0;
       left: 0;
-      li{
+      li {
         width: 100%;
         height: 100px;
-        .remarkTit{
+        .remarkTit {
           font-size: 18px;
           display: inline-block;
           margin-left: 34px;
           margin-top: 35px;
           float: left;
         }
-        .remark{
+        .remark {
           width: 202px;
           height: 72px;
           resize: none;
@@ -1043,7 +1134,8 @@ textarea:-moz-placeholder {
     }
   }
 }
-#webcamCent{
+
+#webcamCent {
   position: absolute;
   width: 502px;
   height: 452px;
@@ -1055,13 +1147,13 @@ textarea:-moz-placeholder {
   background: #FFFFFF;
   box-shadow: #666 0px 0px 10px;
   display: none;
-  .webcamBox{
-    video, canvas{
+  .webcamBox {
+    video, canvas {
       width: 500px;
       height: 400px;
     }
   }
-  .btn{
+  .btn {
     width: 60px;
     height: 30px;
     cursor: pointer;
@@ -1069,11 +1161,32 @@ textarea:-moz-placeholder {
     background: red;
 
   }
-  .cpBtn, .scBtn  {
+  .cpBtn, .scBtn {
     display: none;
   }
-  .pzBtn{
+  .pzBtn {
     background: red;
+  }
+}
+
+#imgZoomBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  .close {
+    position: absolute;
+    color: #FFFFFF;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+  }
+  .imgBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
   }
 }
 

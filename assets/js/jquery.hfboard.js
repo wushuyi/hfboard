@@ -183,9 +183,6 @@
 			setting.jScrollPane.off('jsp-scroll-y');
 		}
 
-
-
-
 		self.init = init;
 		self.drawBackground = drawBackground;
 		self.reInit = reInit;

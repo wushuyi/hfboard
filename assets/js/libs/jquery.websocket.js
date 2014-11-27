@@ -12,15 +12,27 @@
     $.extend({
         websocket: function(url, s, protocols) {
             var ws;
-            if ( protocols ) {
-                ws = window['MozWebSocket'] ? new MozWebSocket(url, protocols) : window['WebSocket'] ? new WebSocket(url, protocols) : null;
-            } else {
-                ws = window['MozWebSocket'] ? new MozWebSocket(url) : window['WebSocket'] ? new WebSocket(url) : null;
+
+            /**
+             *
+             * @param url
+             * @param protocols
+             * @returns {MozWebSocket}
+             */
+            function getWebSocket(url, protocols){
+                if ( protocols ) {
+                    return window['MozWebSocket'] ? new MozWebSocket(url, protocols) : window['WebSocket'] ? new WebSocket(url, protocols) : null;
+                } else {
+                    return window['MozWebSocket'] ? new MozWebSocket(url) : window['WebSocket'] ? new WebSocket(url) : null;
+                }
             }
+
+            ws = getWebSocket(url, protocols);
 
             var settings = {
                 open: function(){},
-                close: function(){},
+                close: function(){
+                },
                 message: function(){},
                 options: {},
                 events: {}

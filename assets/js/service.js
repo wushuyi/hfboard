@@ -1,7 +1,13 @@
 (function($){
 	$(document).ready(function (){
-		var ws = $.websocket("ws://192.168.4.125:8080/html5/ws");
+		//var ws = $.websocket("ws://"+location.hostname+"/ws");
+		var ws = $.websocket("ws://192.168.4.127:8080/html5/ws");
+		window.ws = ws;
 		var gData = {};
+		var $gEvent = $({});
+		$gEvent.one('initSession3', function(){
+			initSession3();
+		});
 
 		function initSession1() {
 			var $sessionBox1 = $("#session1");
@@ -80,10 +86,10 @@
 							var row = data[key];
 							roomInfo += '<li class="room" data-roomid="' + row.roomId + '"><span>房间名称: ' + row.roomName + '</span> <span>创建时间: ' + row.createDate + '</span> <span>房间ID: ' + row.roomId + '</span></li>';
 						}
-						$roomList.append(roomInfo);
+						$roomList.html(roomInfo);
 						if (myCreate) {
 							$sessionBox2.hide();
-							initSession3();
+							$gEvent.trigger('initSession3');
 							inRoom = true;
 						}
 						break;
@@ -101,7 +107,7 @@
 				if (inRoom) {
 					return false;
 				}
-				initSession3();
+				$gEvent.trigger('initSession3');
 			}
 
 			$roomList.on('click', 'li.room', function (e) {
@@ -126,6 +132,8 @@
 			$sessionBox2.show();
 		}
 
+
+
 		function initSession3() {
 
 			var $sessionBox = $("#session3");
@@ -139,6 +147,9 @@
 			});
 			$('.taskCent').jScrollPane({
 				autoReinitialise: true
+			});
+			$('.sessionPop').jScrollPane({
+				//autoReinitialise: true
 			});
 
 			var taskJsp = $('.taskCent').data('jsp');
@@ -188,7 +199,7 @@
 					}, 500);
 				});
 
-
+				// 摄像头处理部分
 				var $webcamCent = $('#webcamCent');
 				var webcam;
 				$('.taskBar .webcam', $hftaskEL).on('click', function(){
@@ -207,11 +218,23 @@
 					webcam.play();
 				});
 				$('.scBtn', $webcamCent).on('click', function(){
-					webcam.getPhoto();
+					var imgBlob =  webcam.getPhoto();
+					$.hfupqiniublob(imgBlob,{
+						ws: ws,
+						type: 'image/png',
+						success: function(data){
+							webcam.stop();
+							$('#popBox').hide();
+							$webcamCent.hide();
+							$('.cpBtn, .scBtn', $webcamCent).hide();
+							$('.pzBtn', $webcamCent).show();
+							$('#myEditor').append('<img class="zoomImg" src="http://hyphen.qiniudn.com/'+data.key+'" />');
+						}
+					})
 				});
 			});
 
-
+			// 聊天模块处理部分
 			var $taskCent = $('#taskCent');
 			$taskCent.data('isOpen', false);
 			$('.close', $taskCent).on('click', function(e){
@@ -220,15 +243,15 @@
 			});
 			$('.showTaskBtn').on('click', function(e){
 				var isOpen = $taskCent.data('isOpen');
-				if(isOpen){
-					$taskCent.hide();
-					$taskCent.data('isOpen', false);
-				}else{
+				if(!isOpen){
 					$taskCent.show();
 					$taskCent.data('isOpen', true);
 					setTimeout(function(){
 						taskJsp.scrollToBottom();
 					}, 1000);
+				}else{
+					$taskCent.hide();
+					$taskCent.data('isOpen', false);
 				}
 			});
 
@@ -293,10 +316,43 @@
 				$(window).off('beforeunload');
 			});
 
+			var $imgZoomBox = $("#imgZoomBox");
+			var $imgZoomBoxClose = $('.close', $imgZoomBox);
+			var $imgZoomBoxImg = $('.imgBox', $imgZoomBox);
+			$('#taskCent').on('click', 'img.zoomImg', function(e){
+				$popBox.show();
+				$imgZoomBox.show();
 
-			$(window).on('beforeunload', function(){
-				return '你确定要离开我了吗?';
+				var $self = $(this);
+				e.preventDefault();
+				e.stopPropagation();
+				var selfSrc = $self.attr('src');
+				var zoomImg = new Image();
+				zoomImg.src = selfSrc;
+				zoomImg.onload = function(){
+					var img = this;
+					$imgZoomBoxImg
+						.css({
+							'width': img.width,
+							'height': img.height,
+							'marginTop': -img.height / 2,
+							'marginLeft': -img.width / 2
+						})
+						.html(zoomImg);
+				};
 			});
+			$imgZoomBoxClose.on('click', function(e){
+				$popBox.hide();
+				$imgZoomBox.hide();
+				$imgZoomBoxImg
+					.removeAttr('style')
+					.html('');
+			});
+
+
+			//$(window).on('beforeunload', function(){
+			//	return '你确定要离开我了吗?';
+			//});
 
 			$(".ratyList .raty").raty({
 				numberMax : 3,
@@ -305,8 +361,158 @@
 				starOn  : 'on.png',
 				hints: ['合格', '良好', '优良']
 			});
+
+			$('.studyBoard .boardBar .num').on('click', function(e){
+
+			});
 		}
 
-		initSession1();
+		initSession3();
+
+
+		ws.setEvents({
+			otherVoip: function (data) {
+				console.log(data);
+				onVoipMsg(data);
+			},
+			selfVoip: function (data) {
+				initVoip(data);
+			}
+		});
+		$('.soundBtn').on('click', function (e) {
+			// 发送获取语音通话token请求
+			//$("#idvideophone").css('left', '50%');
+			ws.send('otherVoip', {});
+		});
+
+		function initVoip(data) {
+			console.log(data);
+
+
+			/*设置为debug模式*/
+			Cloopen.debug();
+
+			/*设置为强制登录模式*/
+			Cloopen.forceLogin();
+
+			/*以voip账号和密码登录的方式初始化*/
+			Cloopen.initByUser('idvideophone'//swf对应的id
+				, initCallBack//初始化时自定义fun
+				, notifyCallBack//显示通知的自定义fun
+				, data.data.voip//voip子账号
+				, data.data.password//voip子账号密码
+			);
+
+			function initCallBack() {
+
+			}
+
+			/*Cloopen显示事件回调通知的自定义函数*/
+			function notifyCallBack(doFun, msg) {
+				if (doFun == 'invited') {
+					// 发起呼叫成功事件
+					console.log('发起呼叫成功事件');
+				}
+				else if (doFun == 'invitefailed') {
+					// 发起呼叫失败事件
+					console.log('发起呼叫失败事件');
+				}
+				else if (doFun == 'accepted') {
+					// 对端应答事件
+					console.log('对端应答事件');
+				}
+				else if (doFun == 'ringing') {
+					// 来电事件
+					console.log('来电事件，号码:' + msg);
+				}
+				else if (doFun == 'onHangup') {
+					// 挂机事件
+					if (msg == 'normal') {
+						console.log('挂机事件: 本端正常挂机');
+					}
+					else if (msg == 'byed') {
+						console.log('挂机事件: 对端正常挂机');
+					}
+					else if (msg == 'rejected') {
+						console.log('挂机事件: 对端拒接');
+					}
+					else if (msg == 'unallocated') {
+						console.log('挂机事件: 呼叫号码为空号');
+					}
+					else if (msg == 'noresponse') {
+						console.log('挂机事件: 呼叫无响应');
+					}
+					else if (msg == 'noanswer') {
+						console.log('挂机事件: 对方无应答');
+					}
+					else {
+						console.log('挂机事件: ' + msg);
+					}
+				}
+				else {
+					// 其他未知事件
+					console.log(msg);
+				}
+			}
+
+			/*未连接状态*/
+			Cloopen.when_idle(function () {
+				console.log('未连接...');
+			});
+
+			/*正在连接服务器注册*/
+			Cloopen.when_connecting(function () {
+				console.log('正在连接服务器注册...');
+			});
+
+			/*已经注册登录*/
+			Cloopen.when_connected(function () {
+				console.log('通话准备就绪！');
+
+				//if(data.data[1].voip != "82669500000002"){
+				//    Cloopen.invitetel(data.data[1].voip);
+				//}
+				//$(".step1").show();
+				//$(".step2").hide();
+				//$(".step3").hide();
+				//$(".step4").hide();
+				//document.getElementById("landcall").disabled = false;
+				//document.getElementById("voipcall").disabled = false;
+			});
+
+			/*正在呼出*/
+			Cloopen.when_outbound(function () {
+				console.log('正在呼出...');
+				//$(".step3").show();
+				//$(".step1").hide();
+			});
+
+			/*有呼入*/
+			Cloopen.when_inbound(function () {
+				console.log('有电话呼入...');
+				Cloopen.accept();
+				//$(".step2").show();
+				//$(".step1").hide();
+				//$(".step3").hide();
+				//$(".step4").hide();
+			});
+
+			/*通话中*/
+			Cloopen.when_active(function () {
+				console.log('通话中...');
+				//stopCount();
+				//timedCount();
+				//$(".step4").show();
+				//$(".step1").hide();
+				//$(".step2").hide();
+				//$(".step3").hide();
+			});
+
+		}
+
+		function onVoipMsg(data) {
+			console.log(data);
+			Cloopen.invitetel(data.data.voip);
+		}
 	});
 })(window.jQuery);

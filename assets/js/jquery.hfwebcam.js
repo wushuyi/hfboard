@@ -78,7 +78,7 @@
                     "maxFrameRate": 60
                 }
             },
-            audio: true
+            audio: false
         }, mediaSuccess, mediaError);
 
         function mediaSuccess(stream){
@@ -117,13 +117,6 @@
             base64Img = base64Img.split(';base64,')[1];
             var blob = window.base64ToBlob(base64Img, 'image/png');
             return blob;
-            //var generatedFile = new File([blob], "test.png", {type: "image/png", lastModified: new Date()});
-            //return generatedFile;
-            //var newLen = blob.size;
-            //var blobUrl = util.stream2Url(generatedFile);
-            //console.log(blobUrl);
-            //console.log("原来大小: "+ originalLen +"; 新大小: " + newLen + "; 压缩率: " + newLen/originalLen + ";");
-            //console.log(newLen);
         }
 
         function mediaError(err){
